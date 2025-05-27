@@ -16,6 +16,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     public let handleSignIn: (SignInProviderType) -> Void
     public let content: () -> Content
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    public let termsOfServiceURL: URL?
+    public let privacyPolicyURL: URL?
     
     public init(
         providers: [SignInProviderType],
@@ -23,6 +25,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         labelType: SignInButtonLabelType = .signIn,
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
         handleSignIn: @escaping (SignInProviderType) -> Void,
+        termsOfServiceURL: URL? = nil,
+        privacyPolicyURL: URL? = nil,
         @ViewBuilder content: @escaping () -> Content = { EmptyView() }
     ) {
         self.providers = providers
@@ -30,6 +34,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         self.labelType = labelType
         self.onSignInStart = onSignInStart
         self.handleSignIn = handleSignIn
+        self.termsOfServiceURL = termsOfServiceURL
+        self.privacyPolicyURL = privacyPolicyURL
         self.content = content
     }
     
@@ -59,6 +65,17 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                     )
                     .frame(height: 52)
                 }
+                
+                if termsOfServiceURL != nil || privacyPolicyURL != nil {
+                    let legalText = legalNoticeMarkdown(terms: termsOfServiceURL, privacy: privacyPolicyURL)
+                    if let legalText = legalText {
+                        Text(.init(legalText))
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 8)
+                    }
+                }
             }
             .padding()
         }
@@ -72,6 +89,19 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
             return colorScheme == .dark ? (.black, true) : (.white, true)
         }
     }
+    
+    private func legalNoticeMarkdown(terms: URL?, privacy: URL?) -> String? {
+        switch (terms, privacy) {
+        case let (terms?, privacy?):
+            return "By continuing, you are indicating that you accept our [Terms of Service](\(terms.absoluteString)) and [Privacy Policy](\(privacy.absoluteString))."
+        case let (terms?, nil):
+            return "By continuing, you are indicating that you accept our [Terms of Service](\(terms.absoluteString))."
+        case let (nil, privacy?):
+            return "By continuing, you are indicating that you accept our [Privacy Policy](\(privacy.absoluteString))."
+        default:
+            return nil
+        }
+    }
 }
 
 #Preview {
@@ -81,6 +111,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         labelType: .signIn,
         onSignInStart: { _ in },
         handleSignIn: { _ in },
+        termsOfServiceURL: URL(string: "apple.com"),
+        privacyPolicyURL: URL(string: "apple.com"),
         content: {
             FirebaseAuthDefaultContentView()
         }
