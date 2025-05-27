@@ -12,6 +12,16 @@ public enum SignInProviderType {
     case google
 }
 
+public enum SignInButtonStyle {
+    case black
+    case white
+}
+
+public enum SignInButtonLabelStyle {
+    case titleAndIcon
+    case iconOnly
+}
+
 public enum SignInButtonLabelType {
     case signIn
     case signUp
@@ -23,30 +33,27 @@ public enum SignInButtonCornerStyle {
     case radius(Int)
 }
 
-public enum SignInButtonLabelStyle {
-    case iconOnly
-    case titleAndIcon
-}
-
-public enum SignInButtonStyle {
-    case black
-    case white
-}
-
 public struct SignInButton: View {
     public let provider: SignInProviderType
+    public let buttonStyle: SignInButtonStyle
+    public let labelStyle: SignInButtonLabelStyle
     public let labelType: SignInButtonLabelType
     public let cornerStyle: SignInButtonCornerStyle
-    public let labelStyle: SignInButtonLabelStyle
-    public let buttonStyle: SignInButtonStyle
     public let action: () -> Void
     
-    public init(provider: SignInProviderType, labelType: SignInButtonLabelType = .signIn, cornerStyle: SignInButtonCornerStyle = .radius(6), labelStyle: SignInButtonLabelStyle = .titleAndIcon, buttonStyle: SignInButtonStyle = .black, action: @escaping () -> Void) {
+    public init(
+        provider: SignInProviderType,
+        buttonStyle: SignInButtonStyle = .black,
+        labelStyle: SignInButtonLabelStyle = .titleAndIcon,
+        labelType: SignInButtonLabelType = .signIn,
+        cornerStyle: SignInButtonCornerStyle = .radius(6),
+        action: @escaping () -> Void
+    ) {
         self.provider = provider
+        self.buttonStyle = buttonStyle
+        self.labelStyle = labelStyle
         self.labelType = labelType
         self.cornerStyle = cornerStyle
-        self.labelStyle = labelStyle
-        self.buttonStyle = buttonStyle
         self.action = action
     }
     
@@ -175,13 +182,7 @@ private struct CornerStyleModifier: ViewModifier {
 
 #Preview {
     VStack(spacing: 16) {
-        SignInButton(provider: .apple, labelStyle: .titleAndIcon, buttonStyle: .black, action: { print("apple blackStyle titleAndIcon") })
-            .frame(height: 44)
-        SignInButton(provider: .apple, labelType: .continue, cornerStyle: .radius(1000), labelStyle: .iconOnly, buttonStyle: .white, action: { print("apple whiteStyle iconOnly") })
-            .frame(width: 44, height: 44)
-        SignInButton(provider: .google, cornerStyle: .radius(0), buttonStyle: .white, action: { print("google whiteStyle titleAndIcon") })
-            .frame(height: 44)
-        SignInButton(provider: .google, labelType: .signUp, cornerStyle: .radius(1000), labelStyle: .titleAndIcon, buttonStyle: .black, action: { print("google blackStyle titleAndIcon") })
+        SignInButton(provider: .apple, action: {})
             .frame(height: 44)
         Spacer()
     }
