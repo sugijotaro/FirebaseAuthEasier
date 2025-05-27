@@ -39,6 +39,7 @@ public struct SignInButton: View {
     public let labelStyle: SignInButtonLabelStyle
     public let labelType: SignInButtonLabelType
     public let cornerStyle: SignInButtonCornerStyle
+    public let hasBorder: Bool
     public let action: () -> Void
     
     public init(
@@ -47,6 +48,7 @@ public struct SignInButton: View {
         labelStyle: SignInButtonLabelStyle = .titleAndIcon,
         labelType: SignInButtonLabelType = .signIn,
         cornerStyle: SignInButtonCornerStyle = .radius(6),
+        hasBorder: Bool = false,
         action: @escaping () -> Void
     ) {
         self.provider = provider
@@ -54,6 +56,7 @@ public struct SignInButton: View {
         self.labelStyle = labelStyle
         self.labelType = labelType
         self.cornerStyle = cornerStyle
+        self.hasBorder = hasBorder
         self.action = action
     }
     
@@ -78,6 +81,9 @@ public struct SignInButton: View {
         .background(backgroundColor)
         .frame(minWidth: 42, minHeight: 42)
         .modifier(CornerStyleModifier(style: cornerStyle))
+        .overlay(
+            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).stroke(Color.black, lineWidth: 1) : nil
+        )
     }
     
     private var titleAndIconButton: some View {
@@ -101,6 +107,9 @@ public struct SignInButton: View {
         )
         .background(backgroundColor)
         .modifier(CornerStyleModifier(style: cornerStyle))
+        .overlay(
+            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).stroke(Color.black, lineWidth: 1) : nil
+        )
     }
     
     private var iconImage: some View {
@@ -183,6 +192,8 @@ private struct CornerStyleModifier: ViewModifier {
 #Preview {
     VStack(spacing: 16) {
         SignInButton(provider: .apple, action: {})
+            .frame(height: 44)
+        SignInButton(provider: .google, buttonStyle: .white, hasBorder: true, action: {})
             .frame(height: 44)
         Spacer()
     }
