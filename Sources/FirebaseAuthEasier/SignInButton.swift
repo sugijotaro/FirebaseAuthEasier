@@ -18,6 +18,8 @@ public enum SignInButtonStyle {
 }
 
 public enum SignInButtonLabelStyle {
+    @available(iOS 16.0, *)
+    case automatic
     case titleAndIcon
     case iconOnly
 }
@@ -45,7 +47,7 @@ public struct SignInButton: View {
     public init(
         provider: SignInProviderType,
         buttonStyle: SignInButtonStyle = .black,
-        labelStyle: SignInButtonLabelStyle = .titleAndIcon,
+        labelStyle: SignInButtonLabelStyle? = nil,
         labelType: SignInButtonLabelType = .signIn,
         cornerStyle: SignInButtonCornerStyle = .radius(6),
         hasBorder: Bool = false,
@@ -53,7 +55,15 @@ public struct SignInButton: View {
     ) {
         self.provider = provider
         self.buttonStyle = buttonStyle
-        self.labelStyle = labelStyle
+        if let labelStyle = labelStyle {
+            self.labelStyle = labelStyle
+        } else {
+            if #available(iOS 16.0, *) {
+                self.labelStyle = .automatic
+            } else {
+                self.labelStyle = .titleAndIcon
+            }
+        }
         self.labelType = labelType
         self.cornerStyle = cornerStyle
         self.hasBorder = hasBorder
@@ -62,11 +72,20 @@ public struct SignInButton: View {
     
     public var body: some View {
         Group {
-            switch labelStyle {
-            case .iconOnly:
-                iconOnlyButton
-            case .titleAndIcon:
-                titleAndIconButton
+            if #available(iOS 16.0, *), labelStyle == .automatic {
+                ViewThatFits {
+                    titleAndIconButton
+                    iconOnlyButton
+                }
+            } else {
+                switch labelStyle {
+                case .iconOnly:
+                    iconOnlyButton
+                case .titleAndIcon:
+                    titleAndIconButton
+                default:
+                    titleAndIconButton
+                }
             }
         }
     }
