@@ -70,21 +70,10 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                         Label("Sign in failed", systemImage: "xmark.octagon.fill")
                             .foregroundColor(.red)
                             .font(.headline)
+                        signInButtonsView
                     }
                 } else {
-                    VStack(spacing: 8) {
-                        ForEach(providers, id: \.self) { provider in
-                            let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
-                            SignInButton(
-                                provider: provider,
-                                buttonStyle: buttonStyle,
-                                labelType: labelType,
-                                hasBorder: hasBorder,
-                                action: { handleSignIn(provider) }
-                            )
-                            .frame(height: 52)
-                        }
-                    }
+                    signInButtonsView
                 }
                 if termsOfServiceURL != nil || privacyPolicyURL != nil {
                     let legalText = legalNoticeMarkdown(terms: termsOfServiceURL, privacy: privacyPolicyURL)
@@ -93,11 +82,28 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                             .font(.footnote)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
+                            .padding(.top, 8)
                     }
                 }
             }
             .frame(maxWidth: .infinity)
             .padding()
+        }
+    }
+    
+    private var signInButtonsView: some View {
+        VStack(spacing: 8) {
+            ForEach(providers, id: \ .self) { provider in
+                let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
+                SignInButton(
+                    provider: provider,
+                    buttonStyle: buttonStyle,
+                    labelType: labelType,
+                    hasBorder: hasBorder,
+                    action: { handleSignIn(provider) }
+                )
+                .frame(height: 52)
+            }
         }
     }
     
