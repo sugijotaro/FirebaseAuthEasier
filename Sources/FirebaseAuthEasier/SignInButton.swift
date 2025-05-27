@@ -101,7 +101,7 @@ public struct SignInButton: View {
         .frame(minWidth: 40, minHeight: 40)
         .modifier(CornerStyleModifier(style: cornerStyle))
         .overlay(
-            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).stroke(Color.black, lineWidth: 1) : nil
+            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).strokeBorder(borderColor, lineWidth: 1) : nil
         )
     }
     
@@ -127,7 +127,7 @@ public struct SignInButton: View {
         .background(backgroundColor)
         .modifier(CornerStyleModifier(style: cornerStyle))
         .overlay(
-            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).stroke(Color.black, lineWidth: 1) : nil
+            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).strokeBorder(borderColor, lineWidth: 1) : nil
         )
     }
     
@@ -155,6 +155,15 @@ public struct SignInButton: View {
     }
     
     private var foregroundColor: Color {
+        switch buttonStyle {
+        case .black:
+            return .white
+        case .white:
+            return .black
+        }
+    }
+    
+    private var borderColor: Color {
         switch buttonStyle {
         case .black:
             return .white
