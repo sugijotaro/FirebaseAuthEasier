@@ -14,8 +14,13 @@ public struct FirebaseAuthDefaultContentView: View {
             if let icon = Bundle.main.icon {
                 Image(uiImage: icon)
                     .resizable()
-                    .frame(width: 80, height: 80)
+                    .frame(width: 84, height: 84)
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            } else {
+                Image(systemName: "app")
+                    .resizable()
+                    .frame(width: 84, height: 84)
+                    .foregroundColor(.secondary)
             }
             if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
                 Text(appName)
