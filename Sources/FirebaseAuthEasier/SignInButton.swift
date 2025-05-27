@@ -12,12 +12,20 @@ public enum SignInProviderType {
     case google
 }
 
+public enum SignInButtonLabelType {
+    case signIn
+    case signUp
+    case `continue`
+}
+
 public struct SignInButton: View {
     public let provider: SignInProviderType
+    public let labelType: SignInButtonLabelType?
     public let action: () -> Void
     
-    public init(provider: SignInProviderType, action: @escaping () -> Void) {
+    public init(provider: SignInProviderType, labelType: SignInButtonLabelType? = .signIn, action: @escaping () -> Void) {
         self.provider = provider
+        self.labelType = labelType
         self.action = action
     }
     
@@ -32,7 +40,7 @@ public struct SignInButton: View {
                                 .resizable()
                                 .renderingMode(.template)
                                 .frame(width: 20, height: 20)
-                            Text("Sign in with Apple")
+                            Text(buttonLabelText)
                                 .font(.system(size: 16, weight: .semibold))
                                 .lineLimit(1)
                         }
@@ -54,7 +62,7 @@ public struct SignInButton: View {
                             Image("ic_google", bundle: Bundle.module)
                                 .resizable()
                                 .frame(width: 20, height: 20)
-                            Text("Sign in with Google")
+                            Text(buttonLabelText)
                                 .font(.system(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.black)
@@ -75,11 +83,35 @@ public struct SignInButton: View {
             }
         }
     }
+    
+    private var buttonLabelText: String {
+        let type = labelType ?? .signIn
+        switch provider {
+        case .apple:
+            switch type {
+            case .signIn:
+                return "Sign in with Apple"
+            case .signUp:
+                return "Sign up with Apple"
+            case .continue:
+                return "Continue with Apple"
+            }
+        case .google:
+            switch type {
+            case .signIn:
+                return "Sign in with Google"
+            case .signUp:
+                return "Sign up with Google"
+            case .continue:
+                return "Continue with Google"
+            }
+        }
+    }
 }
 
 #Preview {
     VStack {
-        SignInButton(provider: .apple, action: { print("apple") })
+        SignInButton(provider: .apple, labelType: .continue, action: { print("apple") })
             .frame(height: 44)
         SignInButton(provider: .google, action: { print("google") })
             .frame(height: 44)
