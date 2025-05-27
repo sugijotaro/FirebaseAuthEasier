@@ -19,8 +19,8 @@ public enum SignInButtonLabelType {
 }
 
 public enum SignInButtonCornerStyle {
+    case none
     case radius(Int)
-    case capsule
 }
 
 public enum SignInButtonLabelStyle {
@@ -28,18 +28,25 @@ public enum SignInButtonLabelStyle {
     case titleAndIcon
 }
 
+public enum SignInButtonStyle {
+    case black
+    case white
+}
+
 public struct SignInButton: View {
     public let provider: SignInProviderType
-    public let labelType: SignInButtonLabelType?
+    public let labelType: SignInButtonLabelType
     public let cornerStyle: SignInButtonCornerStyle
     public let labelStyle: SignInButtonLabelStyle
+    public let buttonStyle: SignInButtonStyle
     public let action: () -> Void
     
-    public init(provider: SignInProviderType, labelType: SignInButtonLabelType? = .signIn, cornerStyle: SignInButtonCornerStyle = .radius(6), labelStyle: SignInButtonLabelStyle = .titleAndIcon, action: @escaping () -> Void) {
+    public init(provider: SignInProviderType, labelType: SignInButtonLabelType = .signIn, cornerStyle: SignInButtonCornerStyle = .radius(6), labelStyle: SignInButtonLabelStyle = .titleAndIcon, buttonStyle: SignInButtonStyle = .black, action: @escaping () -> Void) {
         self.provider = provider
         self.labelType = labelType
         self.cornerStyle = cornerStyle
         self.labelStyle = labelStyle
+        self.buttonStyle = buttonStyle
         self.action = action
     }
     
@@ -64,9 +71,6 @@ public struct SignInButton: View {
         .background(backgroundColor)
         .frame(minWidth: 42, minHeight: 42)
         .modifier(CornerStyleModifier(style: cornerStyle))
-        .overlay(
-            provider == .google ? RoundedRectangle(cornerRadius: cornerRadiusValue).stroke(Color.black, lineWidth: 0.5) : nil
-        )
     }
     
     private var titleAndIconButton: some View {
@@ -90,9 +94,6 @@ public struct SignInButton: View {
         )
         .background(backgroundColor)
         .modifier(CornerStyleModifier(style: cornerStyle))
-        .overlay(
-            provider == .google ? RoundedRectangle(cornerRadius: cornerRadiusValue).stroke(Color.black, lineWidth: 0.5) : nil
-        )
     }
     
     private var iconImage: some View {
@@ -110,28 +111,27 @@ public struct SignInButton: View {
     }
     
     private var backgroundColor: Color {
-        switch provider {
-        case .apple:
+        switch buttonStyle {
+        case .black:
             return .black
-        case .google:
+        case .white:
             return .white
         }
     }
     
     private var foregroundColor: Color {
-        switch provider {
-        case .apple:
+        switch buttonStyle {
+        case .black:
             return .white
-        case .google:
+        case .white:
             return .black
         }
     }
     
     private var buttonLabelText: String {
-        let type = labelType ?? .signIn
         switch provider {
         case .apple:
-            switch type {
+            switch labelType {
             case .signIn:
                 return "Sign in with Apple"
             case .signUp:
@@ -140,7 +140,7 @@ public struct SignInButton: View {
                 return "Continue with Apple"
             }
         case .google:
-            switch type {
+            switch labelType {
             case .signIn:
                 return "Sign in with Google"
             case .signUp:
@@ -153,10 +153,10 @@ public struct SignInButton: View {
     
     private var cornerRadiusValue: CGFloat {
         switch cornerStyle {
+        case .none:
+            return CGFloat(0)
         case .radius(let value):
             return CGFloat(value)
-        case .capsule:
-            return 1000
         }
     }
 }
@@ -165,23 +165,23 @@ private struct CornerStyleModifier: ViewModifier {
     let style: SignInButtonCornerStyle
     func body(content: Content) -> some View {
         switch style {
+        case .none:
+            content.cornerRadius(CGFloat(0))
         case .radius(let value):
             content.cornerRadius(CGFloat(value))
-        case .capsule:
-            content.clipShape(Capsule())
         }
     }
 }
 
 #Preview {
     VStack(spacing: 16) {
-        SignInButton(provider: .apple, labelStyle: .titleAndIcon, action: { print("apple titleAndIcon") })
+        SignInButton(provider: .apple, labelStyle: .titleAndIcon, buttonStyle: .black, action: { print("apple blackStyle titleAndIcon") })
             .frame(height: 44)
-        SignInButton(provider: .apple, labelType: .continue, cornerStyle: .capsule, labelStyle: .iconOnly, action: { print("apple iconOnly") })
+        SignInButton(provider: .apple, labelType: .continue, cornerStyle: .radius(1000), labelStyle: .iconOnly, buttonStyle: .white, action: { print("apple whiteStyle iconOnly") })
             .frame(width: 44, height: 44)
-        SignInButton(provider: .google, cornerStyle: .radius(0), action: { print("google automatic") })
+        SignInButton(provider: .google, cornerStyle: .radius(0), buttonStyle: .white, action: { print("google whiteStyle titleAndIcon") })
             .frame(height: 44)
-        SignInButton(provider: .google, labelType: .signUp, cornerStyle: .capsule, labelStyle: .titleAndIcon, action: { print("google round") })
+        SignInButton(provider: .google, labelType: .signUp, cornerStyle: .radius(1000), labelStyle: .titleAndIcon, buttonStyle: .black, action: { print("google blackStyle titleAndIcon") })
             .frame(height: 44)
         Spacer()
     }
