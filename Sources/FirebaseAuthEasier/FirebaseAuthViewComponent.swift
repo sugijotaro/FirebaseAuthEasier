@@ -57,7 +57,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                     .frame(height: 52)
                 }
             }
-            .padding(.horizontal)
+            .padding()
         }
     }
     
