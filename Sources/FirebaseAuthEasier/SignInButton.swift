@@ -36,13 +36,15 @@ public struct SignInButton: View {
                                 .font(.system(size: 16, weight: .semibold))
                                 .lineLimit(1)
                         }
-                        .minimumScaleFactor(0.2)
-                        .padding(8)
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
-                .frame(height: 44)
+                .frame(minWidth: 180,
+                       maxWidth: .infinity,
+                       minHeight: 40,
+                       maxHeight: .infinity
+                )
                 .background(.black)
                 .cornerRadius(6)
             case .google:
@@ -56,10 +58,14 @@ public struct SignInButton: View {
                                 .font(.system(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.black)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
-                .frame(height: 44)
+                .frame(minWidth: 180,
+                       maxWidth: .infinity,
+                       minHeight: 40,
+                       maxHeight: .infinity
+                )
                 .background(.white)
                 .cornerRadius(6)
                 .overlay(
@@ -68,12 +74,16 @@ public struct SignInButton: View {
                 )
             }
         }
-        .padding(.horizontal)
     }
 }
 
 #Preview {
-    SignInButton(provider: .apple, action: { print("apple") })
-    SignInButton(provider: .google, action: { print("google") })
-    Spacer()
+    VStack {
+        SignInButton(provider: .apple, action: { print("apple") })
+            .frame(height: 44)
+        SignInButton(provider: .google, action: { print("google") })
+            .frame(height: 44)
+        Spacer()
+    }
+    .padding(.horizontal)
 }
