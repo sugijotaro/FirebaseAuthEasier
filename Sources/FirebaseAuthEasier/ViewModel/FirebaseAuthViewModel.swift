@@ -17,6 +17,7 @@ public final class FirebaseAuthViewModel: ObservableObject {
     public let labelType: SignInButtonLabelType
     public let onSignInStart: ((SignInProviderType) -> Void)?
     public let didSignIn: ((Result<AuthDataResult, Error>) -> Void)?
+    public private(set) var lastSignInResult: Result<AuthDataResult, Error>? = nil
     private let authService = FirebaseAuthService()
     
     public init(
@@ -40,19 +41,24 @@ public final class FirebaseAuthViewModel: ObservableObject {
                 guard let self = self else { return }
                 Task { @MainActor in
                     self.isSigningIn = false
+                    self.lastSignInResult = result
                     self.didSignIn?(result)
                 }
             }
         case .google:
             guard let rootVC = Self.getRootViewController() else {
                 isSigningIn = false
-                didSignIn?(.failure(NSError(domain: "FirebaseAuthViewModel", code: 0, userInfo: [NSLocalizedDescriptionKey: "RootViewController not found."])))
+                let error = NSError(domain: "FirebaseAuthViewModel", code: 0, userInfo: [NSLocalizedDescriptionKey: "RootViewController not found."])
+                let result: Result<AuthDataResult, Error> = .failure(error)
+                self.lastSignInResult = result
+                didSignIn?(result)
                 return
             }
             authService.startSignInWithGoogle(presentingViewController: rootVC) { [weak self] result in
                 guard let self = self else { return }
                 Task { @MainActor in
                     self.isSigningIn = false
+                    self.lastSignInResult = result
                     self.didSignIn?(result)
                 }
             }

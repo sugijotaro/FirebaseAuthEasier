@@ -11,6 +11,7 @@ import FirebaseAuth
 public struct FirebaseAuthView<Content: View>: View {
     @StateObject private var viewModel: FirebaseAuthViewModel
     private let content: () -> Content
+    @State private var signInResult: Result<AuthDataResult, Error>? = nil
     
     public init(
         providers: [SignInProviderType]? = nil,
@@ -23,7 +24,9 @@ public struct FirebaseAuthView<Content: View>: View {
             providers: providers,
             labelType: labelType,
             onSignInStart: onSignInStart,
-            didSignIn: didSignIn
+            didSignIn: { result in
+                didSignIn?(result)
+            }
         ))
         self.content = content
     }
@@ -34,8 +37,16 @@ public struct FirebaseAuthView<Content: View>: View {
             isSigningIn: viewModel.isSigningIn,
             labelType: viewModel.labelType,
             onSignInStart: viewModel.onSignInStart,
-            handleSignIn: viewModel.handleSignIn,
+            handleSignIn: { provider in
+                viewModel.handleSignIn(provider: provider)
+            },
+            signInResult: signInResult,
             content: content
         )
+        .onChange(of: viewModel.isSigningIn) { isSigningIn in
+            if !isSigningIn {
+                signInResult = viewModel.lastSignInResult
+            }
+        }
     }
 }

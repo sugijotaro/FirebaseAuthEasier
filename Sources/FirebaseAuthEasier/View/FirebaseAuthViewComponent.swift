@@ -18,6 +18,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     public let termsOfServiceURL: URL?
     public let privacyPolicyURL: URL?
+    public let signInResult: Result<AuthDataResult, Error>?
     
     public init(
         providers: [SignInProviderType],
@@ -27,6 +28,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         handleSignIn: @escaping (SignInProviderType) -> Void,
         termsOfServiceURL: URL? = nil,
         privacyPolicyURL: URL? = nil,
+        signInResult: Result<AuthDataResult, Error>? = nil,
         @ViewBuilder content: @escaping () -> Content = { EmptyView() }
     ) {
         self.providers = providers
@@ -36,11 +38,12 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         self.handleSignIn = handleSignIn
         self.termsOfServiceURL = termsOfServiceURL
         self.privacyPolicyURL = privacyPolicyURL
+        self.signInResult = signInResult
         self.content = content
     }
     
     public var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: 0) {
             if #available(iOS 16.0, *) {
                 ViewThatFits {
                     content()
@@ -53,19 +56,36 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                     content()
                 }
             }
-            VStack {
-                ForEach(providers, id: \.self) { provider in
-                    let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
-                    SignInButton(
-                        provider: provider,
-                        buttonStyle: buttonStyle,
-                        labelType: labelType,
-                        hasBorder: hasBorder,
-                        action: { handleSignIn(provider) }
-                    )
-                    .frame(height: 52)
+            VStack(spacing: 16) {
+                if isSigningIn {
+                    ProgressView("Signing in...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                } else if let signInResult = signInResult {
+                    switch signInResult {
+                    case .success:
+                        Label("Sign in successful", systemImage: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                            .font(.headline)
+                    case .failure:
+                        Label("Sign in failed", systemImage: "xmark.octagon.fill")
+                            .foregroundColor(.red)
+                            .font(.headline)
+                    }
+                } else {
+                    VStack(spacing: 8) {
+                        ForEach(providers, id: \.self) { provider in
+                            let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
+                            SignInButton(
+                                provider: provider,
+                                buttonStyle: buttonStyle,
+                                labelType: labelType,
+                                hasBorder: hasBorder,
+                                action: { handleSignIn(provider) }
+                            )
+                            .frame(height: 52)
+                        }
+                    }
                 }
-                
                 if termsOfServiceURL != nil || privacyPolicyURL != nil {
                     let legalText = legalNoticeMarkdown(terms: termsOfServiceURL, privacy: privacyPolicyURL)
                     if let legalText = legalText {
@@ -73,10 +93,10 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                             .font(.footnote)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
-                            .padding(.top, 8)
                     }
                 }
             }
+            .frame(maxWidth: .infinity)
             .padding()
         }
     }
@@ -104,7 +124,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     }
 }
 
-#Preview {
+#Preview("Default") {
     FirebaseAuthViewComponent(
         providers: [.apple, .google],
         isSigningIn: false,
@@ -113,6 +133,23 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         handleSignIn: { _ in },
         termsOfServiceURL: URL(string: "apple.com"),
         privacyPolicyURL: URL(string: "apple.com"),
+        signInResult: nil,
+        content: {
+            FirebaseAuthDefaultContentView()
+        }
+    )
+}
+
+#Preview("Failure") {
+    FirebaseAuthViewComponent(
+        providers: [.apple, .google],
+        isSigningIn: false,
+        labelType: .signIn,
+        onSignInStart: { _ in },
+        handleSignIn: { _ in },
+        termsOfServiceURL: URL(string: "apple.com"),
+        privacyPolicyURL: URL(string: "apple.com"),
+        signInResult: .failure(NSError(domain: "", code: -1)),
         content: {
             FirebaseAuthDefaultContentView()
         }
