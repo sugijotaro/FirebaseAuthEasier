@@ -14,12 +14,14 @@ public struct FirebaseAuthView<Content: View>: View {
     
     public init(
         providers: [SignInProviderType]? = nil,
+        labelType: SignInButtonLabelType = .signIn,
         @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
         didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
     ) {
         _viewModel = StateObject(wrappedValue: FirebaseAuthViewModel(
             providers: providers,
+            labelType: labelType,
             onSignInStart: onSignInStart,
             didSignIn: didSignIn
         ))
@@ -30,6 +32,7 @@ public struct FirebaseAuthView<Content: View>: View {
         FirebaseAuthViewComponent(
             providers: viewModel.providers,
             isSigningIn: viewModel.isSigningIn,
+            labelType: viewModel.labelType,
             onSignInStart: viewModel.onSignInStart,
             handleSignIn: viewModel.handleSignIn,
             content: content

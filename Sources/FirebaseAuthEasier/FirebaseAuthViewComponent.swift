@@ -11,6 +11,7 @@ import FirebaseAuth
 public struct FirebaseAuthViewComponent<Content: View>: View {
     public let providers: [SignInProviderType]
     public let isSigningIn: Bool
+    public let labelType: SignInButtonLabelType
     public let onSignInStart: ((SignInProviderType) -> Void)?
     public let handleSignIn: (SignInProviderType) -> Void
     public let content: () -> Content
@@ -19,12 +20,14 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     public init(
         providers: [SignInProviderType],
         isSigningIn: Bool,
+        labelType: SignInButtonLabelType = .signIn,
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
         handleSignIn: @escaping (SignInProviderType) -> Void,
         @ViewBuilder content: @escaping () -> Content = { EmptyView() }
     ) {
         self.providers = providers
         self.isSigningIn = isSigningIn
+        self.labelType = labelType
         self.onSignInStart = onSignInStart
         self.handleSignIn = handleSignIn
         self.content = content
@@ -50,7 +53,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                     SignInButton(
                         provider: provider,
                         buttonStyle: buttonStyle,
-                        labelType: .signIn,
+                        labelType: labelType,
                         hasBorder: hasBorder,
                         action: { handleSignIn(provider) }
                     )
@@ -75,6 +78,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     FirebaseAuthViewComponent(
         providers: [.apple, .google],
         isSigningIn: false,
+        labelType: .signIn,
         onSignInStart: { _ in },
         handleSignIn: { _ in },
         content: {
