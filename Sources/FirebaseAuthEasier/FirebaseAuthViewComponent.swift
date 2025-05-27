@@ -78,7 +78,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         onSignInStart: { _ in },
         handleSignIn: { _ in },
         content: {
-            Text("hoge")
+            FirebaseAuthDefaultContentView()
         }
     )
 }

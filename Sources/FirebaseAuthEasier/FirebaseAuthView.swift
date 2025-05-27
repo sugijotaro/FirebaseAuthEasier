@@ -14,7 +14,7 @@ public struct FirebaseAuthView<Content: View>: View {
     
     public init(
         providers: [SignInProviderType]? = nil,
-        @ViewBuilder content: @escaping () -> Content = { EmptyView() },
+        @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
         didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
     ) {
