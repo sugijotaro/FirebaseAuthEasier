@@ -14,6 +14,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     public let onSignInStart: ((SignInProviderType) -> Void)?
     public let handleSignIn: (SignInProviderType) -> Void
     public let content: () -> Content
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     public init(
         providers: [SignInProviderType],
@@ -45,15 +46,27 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
             }
             VStack {
                 ForEach(providers, id: \.self) { provider in
+                    let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
                     SignInButton(
                         provider: provider,
+                        buttonStyle: buttonStyle,
+                        labelType: .signIn,
+                        hasBorder: hasBorder,
                         action: { handleSignIn(provider) }
                     )
-                    .disabled(isSigningIn)
+                    .frame(height: 52)
                 }
-                .frame(height: 52)
-                .padding(.horizontal)
             }
+            .padding(.horizontal)
+        }
+    }
+    
+    private func buttonStyleAndBorder(for provider: SignInProviderType, colorScheme: ColorScheme) -> (SignInButtonStyle, Bool) {
+        switch provider {
+        case .apple:
+            return colorScheme == .dark ? (.white, false) : (.black, false)
+        case .google:
+            return colorScheme == .dark ? (.black, true) : (.white, true)
         }
     }
 }
