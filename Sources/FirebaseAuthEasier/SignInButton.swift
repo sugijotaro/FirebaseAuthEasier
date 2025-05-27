@@ -18,14 +18,21 @@ public enum SignInButtonLabelType {
     case `continue`
 }
 
+public enum SignInButtonCornerStyle {
+    case radius(Int)
+    case capsule
+}
+
 public struct SignInButton: View {
     public let provider: SignInProviderType
     public let labelType: SignInButtonLabelType?
+    public let cornerStyle: SignInButtonCornerStyle
     public let action: () -> Void
     
-    public init(provider: SignInProviderType, labelType: SignInButtonLabelType? = .signIn, action: @escaping () -> Void) {
+    public init(provider: SignInProviderType, labelType: SignInButtonLabelType? = .signIn, cornerStyle: SignInButtonCornerStyle = .radius(6), action: @escaping () -> Void) {
         self.provider = provider
         self.labelType = labelType
+        self.cornerStyle = cornerStyle
         self.action = action
     }
     
@@ -54,7 +61,7 @@ public struct SignInButton: View {
                        maxHeight: .infinity
                 )
                 .background(.black)
-                .cornerRadius(6)
+                .modifier(CornerStyleModifier(style: cornerStyle))
             case .google:
                 HStack {
                     Button(action: action) {
@@ -75,9 +82,9 @@ public struct SignInButton: View {
                        maxHeight: .infinity
                 )
                 .background(.white)
-                .cornerRadius(6)
+                .modifier(CornerStyleModifier(style: cornerStyle))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 6)
+                    RoundedRectangle(cornerRadius: cornerRadiusValue)
                         .stroke(Color.black, lineWidth: 0.5)
                 )
             }
@@ -107,13 +114,38 @@ public struct SignInButton: View {
             }
         }
     }
+    
+    private var cornerRadiusValue: CGFloat {
+        switch cornerStyle {
+        case .radius(let value):
+            return CGFloat(value)
+        case .capsule:
+            return 1000
+        }
+    }
+}
+
+private struct CornerStyleModifier: ViewModifier {
+    let style: SignInButtonCornerStyle
+    func body(content: Content) -> some View {
+        switch style {
+        case .radius(let value):
+            content.cornerRadius(CGFloat(value))
+        case .capsule:
+            content.clipShape(Capsule())
+        }
+    }
 }
 
 #Preview {
-    VStack {
-        SignInButton(provider: .apple, labelType: .continue, action: { print("apple") })
+    VStack(spacing: 16) {
+        SignInButton(provider: .apple, action: { print("apple capsule") })
             .frame(height: 44)
-        SignInButton(provider: .google, action: { print("google") })
+        SignInButton(provider: .apple, labelType: .continue, action: { print("apple capsule") })
+            .frame(height: 44)
+        SignInButton(provider: .google, cornerStyle: .radius(0), action: { print("google square") })
+            .frame(height: 44)
+        SignInButton(provider: .google, labelType: .signUp, cornerStyle: .capsule, action: { print("google round") })
             .frame(height: 44)
         Spacer()
     }
