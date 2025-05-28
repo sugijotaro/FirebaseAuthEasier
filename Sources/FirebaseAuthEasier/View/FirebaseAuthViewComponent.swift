@@ -58,7 +58,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
             }
             VStack(spacing: 16) {
                 if isSigningIn {
-                    ProgressView("Signing in...")
+                    ProgressView(NSLocalizedString("Signing in...", bundle: Bundle.module, comment: ""))
                         .progressViewStyle(CircularProgressViewStyle())
                 } else if let signInResult = signInResult {
                     switch signInResult {

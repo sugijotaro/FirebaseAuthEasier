@@ -177,20 +177,20 @@ public struct SignInButton: View {
         case .apple:
             switch labelType {
             case .signIn:
-                return "Sign in with Apple"
+                return NSLocalizedString("Sign in with Apple", bundle: Bundle.module, comment: "")
             case .signUp:
-                return "Sign up with Apple"
+                return NSLocalizedString("Sign up with Apple", bundle: Bundle.module, comment: "")
             case .continue:
-                return "Continue with Apple"
+                return NSLocalizedString("Continue with Apple", bundle: Bundle.module, comment: "")
             }
         case .google:
             switch labelType {
             case .signIn:
-                return "Sign in with Google"
+                return NSLocalizedString("Sign in with Google", bundle: Bundle.module, comment: "")
             case .signUp:
-                return "Sign up with Google"
+                return NSLocalizedString("Sign up with Google", bundle: Bundle.module, comment: "")
             case .continue:
-                return "Continue with Google"
+                return NSLocalizedString("Continue with Google", bundle: Bundle.module, comment: "")
             }
         }
     }

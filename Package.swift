@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "FirebaseAuthEasier",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v15)
     ],
