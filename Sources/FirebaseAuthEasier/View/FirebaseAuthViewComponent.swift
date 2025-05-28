@@ -63,11 +63,11 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                 } else if let signInResult = signInResult {
                     switch signInResult {
                     case .success:
-                        Label(signInSuccessText, systemImage: "checkmark.circle.fill")
+                        Label(resultStatusText(true), systemImage: "checkmark.circle.fill")
                             .foregroundColor(.green)
                             .font(.headline)
                     case .failure:
-                        Label(signInFailedText, systemImage: "xmark.octagon.fill")
+                        Label(resultStatusText(false), systemImage: "xmark.octagon.fill")
                             .foregroundColor(.red)
                             .font(.headline)
                         signInButtonsView
@@ -123,27 +123,17 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         case .signUp:
             return NSLocalizedString("Signing up...", bundle: Bundle.module, comment: "")
         case .continue:
-            return NSLocalizedString("Continuing...", bundle: Bundle.module, comment: "")
+            return NSLocalizedString("Processing...", bundle: Bundle.module, comment: "")
         }
     }
-    private var signInSuccessText: String {
-        switch labelType {
-        case .signIn:
-            return NSLocalizedString("Sign in successful", bundle: Bundle.module, comment: "")
-        case .signUp:
-            return NSLocalizedString("Sign up successful", bundle: Bundle.module, comment: "")
-        case .continue:
-            return NSLocalizedString("Continue successful", bundle: Bundle.module, comment: "")
-        }
-    }
-    private var signInFailedText: String {
-        switch labelType {
-        case .signIn:
-            return NSLocalizedString("Sign in failed", bundle: Bundle.module, comment: "")
-        case .signUp:
-            return NSLocalizedString("Sign up failed", bundle: Bundle.module, comment: "")
-        case .continue:
-            return NSLocalizedString("Continue failed", bundle: Bundle.module, comment: "")
+    
+    private var resultStatusText: (Bool) -> String {
+        { isSuccess in
+            if isSuccess {
+                return NSLocalizedString("Success", bundle: Bundle.module, comment: "")
+            } else {
+                return NSLocalizedString("Failed", bundle: Bundle.module, comment: "")
+            }
         }
     }
     
