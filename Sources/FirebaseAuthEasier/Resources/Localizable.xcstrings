@@ -1,6 +1,89 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "By continuing, you are indicating that you accept our [Privacy Policy](%@)." : {
+      "comment" : "Legal notice with only Privacy Policy",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing, you are indicating that you accept our [Privacy Policy](%@)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行することで、[プライバシーポリシー](%@)に同意したものとみなされます。"
+          }
+        }
+      }
+    },
+    "By continuing, you are indicating that you accept our [Terms of Service](%@) and [Privacy Policy](%@)." : {
+      "comment" : "Legal notice with both Terms of Service and Privacy Policy",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "By continuing, you are indicating that you accept our [Terms of Service](%1$@) and [Privacy Policy](%2$@)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行することで、[利用規約](%1$@)および[プライバシーポリシー](%2$@)に同意したものとみなされます。"
+          }
+        }
+      }
+    },
+    "By continuing, you are indicating that you accept our [Terms of Service](%@)." : {
+      "comment" : "Legal notice with only Terms of Service",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing, you are indicating that you accept our [Terms of Service](%@)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行することで、[利用規約](%@)に同意したものとみなされます。"
+          }
+        }
+      }
+    },
+    "Continue failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue failed"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行に失敗しました"
+          }
+        }
+      }
+    },
+    "Continue successful" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue successful"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行に成功しました"
+          }
+        }
+      }
+    },
     "Continue with Apple" : {
       "localizations" : {
         "en" : {
@@ -33,12 +116,34 @@
         }
       }
     },
+    "Continuing..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuing..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行中…"
+          }
+        }
+      }
+    },
     "Sign in failed" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sign in failed"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サインインに失敗しました"
           }
         }
       }
@@ -49,6 +154,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sign in successful"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サインインに成功しました"
           }
         }
       }
@@ -82,6 +193,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Googleでサインイン"
+          }
+        }
+      }
+    },
+    "Sign up failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up failed"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録に失敗しました"
+          }
+        }
+      }
+    },
+    "Sign up successful" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up successful"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録に成功しました"
           }
         }
       }
@@ -131,6 +274,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "サインイン中…"
+          }
+        }
+      }
+    },
+    "Signing up..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signing up..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録中…"
           }
         }
       }

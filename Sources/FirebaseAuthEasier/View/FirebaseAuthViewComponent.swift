@@ -58,16 +58,16 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
             }
             VStack(spacing: 16) {
                 if isSigningIn {
-                    ProgressView(NSLocalizedString("Signing in...", bundle: Bundle.module, comment: ""))
+                    ProgressView(signingInText)
                         .progressViewStyle(CircularProgressViewStyle())
                 } else if let signInResult = signInResult {
                     switch signInResult {
                     case .success:
-                        Label("Sign in successful", systemImage: "checkmark.circle.fill")
+                        Label(signInSuccessText, systemImage: "checkmark.circle.fill")
                             .foregroundColor(.green)
                             .font(.headline)
                     case .failure:
-                        Label("Sign in failed", systemImage: "xmark.octagon.fill")
+                        Label(signInFailedText, systemImage: "xmark.octagon.fill")
                             .foregroundColor(.red)
                             .font(.headline)
                         signInButtonsView
@@ -116,14 +116,54 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
         }
     }
     
+    private var signingInText: String {
+        switch labelType {
+        case .signIn:
+            return NSLocalizedString("Signing in...", bundle: Bundle.module, comment: "")
+        case .signUp:
+            return NSLocalizedString("Signing up...", bundle: Bundle.module, comment: "")
+        case .continue:
+            return NSLocalizedString("Continuing...", bundle: Bundle.module, comment: "")
+        }
+    }
+    private var signInSuccessText: String {
+        switch labelType {
+        case .signIn:
+            return NSLocalizedString("Sign in successful", bundle: Bundle.module, comment: "")
+        case .signUp:
+            return NSLocalizedString("Sign up successful", bundle: Bundle.module, comment: "")
+        case .continue:
+            return NSLocalizedString("Continue successful", bundle: Bundle.module, comment: "")
+        }
+    }
+    private var signInFailedText: String {
+        switch labelType {
+        case .signIn:
+            return NSLocalizedString("Sign in failed", bundle: Bundle.module, comment: "")
+        case .signUp:
+            return NSLocalizedString("Sign up failed", bundle: Bundle.module, comment: "")
+        case .continue:
+            return NSLocalizedString("Continue failed", bundle: Bundle.module, comment: "")
+        }
+    }
+    
     private func legalNoticeMarkdown(terms: URL?, privacy: URL?) -> String? {
         switch (terms, privacy) {
         case let (terms?, privacy?):
-            return "By continuing, you are indicating that you accept our [Terms of Service](\(terms.absoluteString)) and [Privacy Policy](\(privacy.absoluteString))."
+            return String(
+                format: NSLocalizedString("By continuing, you are indicating that you accept our [Terms of Service](%@) and [Privacy Policy](%@).", bundle: Bundle.module, comment: "Legal notice with both Terms of Service and Privacy Policy"),
+                terms.absoluteString, privacy.absoluteString
+            )
         case let (terms?, nil):
-            return "By continuing, you are indicating that you accept our [Terms of Service](\(terms.absoluteString))."
+            return String(
+                format: NSLocalizedString("By continuing, you are indicating that you accept our [Terms of Service](%@).", bundle: Bundle.module, comment: "Legal notice with only Terms of Service"),
+                terms.absoluteString
+            )
         case let (nil, privacy?):
-            return "By continuing, you are indicating that you accept our [Privacy Policy](\(privacy.absoluteString))."
+            return String(
+                format: NSLocalizedString("By continuing, you are indicating that you accept our [Privacy Policy](%@).", bundle: Bundle.module, comment: "Legal notice with only Privacy Policy"),
+                privacy.absoluteString
+            )
         default:
             return nil
         }
