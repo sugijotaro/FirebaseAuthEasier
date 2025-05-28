@@ -70,12 +70,6 @@
             "value" : "계속함으로써 당사의 [개인정보 처리방침](%@)에 동의하게 됩니다."
           }
         },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tęsdami patvirtinate, kad sutinkate su mūsų [Privatumo politika](%@)."
-          }
-        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -211,12 +205,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "계속함으로써 당사의 [이용약관](%1$@)과 [개인정보 처리방침](%2$@)에 동의하게 됩니다."
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tęsdami patvirtinate, kad sutinkate su mūsų [Paslaugų teikimo sąlygomis](%1$@) ir [Privatumo politika](%2$@)."
           }
         },
         "nb" : {
@@ -356,12 +344,6 @@
             "value" : "계속함으로써 당사의 [이용약관](%@)에 동의하게 됩니다."
           }
         },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tęsdami patvirtinate, kad sutinkate su mūsų [Paslaugų teikimo sąlygomis](%@)."
-          }
-        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -471,13 +453,13 @@
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "המשך עם אפל"
+            "value" : "המשך עם Apple"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple के साथ जारी रखें"
+            "value" : "Apple से जारी रखें"
           }
         },
         "it" : {
@@ -495,13 +477,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "애플로 계속"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tęsti naudojant „Apple“"
+            "value" : "Apple로 계속하기"
           }
         },
         "nb" : {
@@ -513,13 +489,13 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Doorgaan met Apple"
+            "value" : "Ga door met Apple"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kontynuuj przez Apple"
+            "value" : "Kontynuuj, używając konta Apple"
           }
         },
         "pt" : {
@@ -531,7 +507,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продолжить через Apple"
+            "value" : "Продолжить с Apple"
           }
         },
         "sv" : {
@@ -549,25 +525,25 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple ile devam et"
+            "value" : "Apple ile Devam Et"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продовжити через Apple"
+            "value" : "Використати Apple"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "继续使用苹果"
+            "value" : "通过Apple继续"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "繼續用 Apple"
+            "value" : "透過Apple繼續"
           }
         }
       }
@@ -613,13 +589,13 @@
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "המשך עם גוגל"
+            "value" : "המשך עם Google"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Google के साथ जारी रखें"
+            "value" : "Google से जारी रखें"
           }
         },
         "it" : {
@@ -637,13 +613,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "구글로 계속"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tęsti naudojant „Google“"
+            "value" : "Google로 계속하기"
           }
         },
         "nb" : {
@@ -655,13 +625,13 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Doorgaan met Google"
+            "value" : "Ga door met Google"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kontynuuj przez Google"
+            "value" : "Kontynuuj, używając konta Google"
           }
         },
         "pt" : {
@@ -673,7 +643,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продолжить через Google"
+            "value" : "Продолжить с Google"
           }
         },
         "sv" : {
@@ -691,25 +661,25 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Google ile devam et"
+            "value" : "Google ile Devam Et"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Продовжити через Google"
+            "value" : "Використати Google"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "继续使用谷歌"
+            "value" : "通过Google继续"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "繼續用 Google"
+            "value" : "透過Google繼續"
           }
         }
       }
@@ -780,12 +750,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "실패"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nepavyko"
           }
         },
         "nb" : {
@@ -924,12 +888,6 @@
             "value" : "처리 중..."
           }
         },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apdorojama..."
-          }
-        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1004,7 +962,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přihlášení přes Apple"
+            "value" : "Přihlásit se přes Apple"
           }
         },
         "da" : {
@@ -1040,13 +998,13 @@
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "היכנס באמצעות אפל"
+            "value" : "התחברות באמצעות Apple"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple के साथ साइन इन करें"
+            "value" : "Apple से साइन इन करें"
           }
         },
         "it" : {
@@ -1064,43 +1022,37 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "애플로 로그인"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prisijungti naudojant „Apple“"
+            "value" : "Apple로 로그인"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logg inn med Apple"
+            "value" : "Logg på med Apple"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inloggen met Apple"
+            "value" : "Log in met Apple"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zaloguj się przez Apple"
+            "value" : "Zaloguj się, używając konta Apple"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Entrar com a Apple"
+            "value" : "Iniciar sessão com a Apple"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Войти через Apple"
+            "value" : "Вход с Apple"
           }
         },
         "sv" : {
@@ -1112,31 +1064,31 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เข้าสู่ระบบด้วย Apple"
+            "value" : "ลงชื่อเข้าด้วย Apple"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple ile giriş yap"
+            "value" : "Apple ile Giriş Yap"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Увійти через Apple"
+            "value" : "Вхід з Apple"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用苹果登录"
+            "value" : "通过Apple登录"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 Apple 登入"
+            "value" : "使用Apple登入"
           }
         }
       }
@@ -1146,7 +1098,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přihlášení přes Google"
+            "value" : "Přihlásit se přes Google"
           }
         },
         "da" : {
@@ -1182,13 +1134,13 @@
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "היכנס באמצעות גוגל"
+            "value" : "התחברות באמצעות Google"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Google के साथ साइन इन करें"
+            "value" : "Google से साइन इन करें"
           }
         },
         "it" : {
@@ -1206,43 +1158,37 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "구글로 로그인"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prisijungti naudojant „Google“"
+            "value" : "Google로 로그인"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Logg inn med Google"
+            "value" : "Logg på med Google"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inloggen met Google"
+            "value" : "Log in met Google"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zaloguj się przez Google"
+            "value" : "Zaloguj się, używając konta Google"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Entrar com o Google"
+            "value" : "Iniciar sessão com o Google"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Войти через Google"
+            "value" : "Вход с Google"
           }
         },
         "sv" : {
@@ -1254,31 +1200,31 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เข้าสู่ระบบด้วย Google"
+            "value" : "ลงชื่อเข้าด้วย Google"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Google ile giriş yap"
+            "value" : "Google ile Giriş Yap"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Увійти через Google"
+            "value" : "Вхід з Google"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用谷歌登录"
+            "value" : "通过Google登录"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 Google 登入"
+            "value" : "使用Google登入"
           }
         }
       }
@@ -1288,19 +1234,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Registrace přes Apple"
+            "value" : "Zaregistrovat se přes Apple"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tilmeld med Apple"
+            "value" : "Tilmeld dig med Apple"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit Apple registrieren"
+            "value" : "Mit Apple anmelden"
           }
         },
         "en" : {
@@ -1318,25 +1264,25 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S'inscrire avec Apple"
+            "value" : "S’inscrire avec Apple"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הירשם באמצעות אפל"
+            "value" : "הרשמה באמצעות Apple"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple के साथ साइन अप करें"
+            "value" : "Apple से साइन अप करें"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Registrati con Apple"
+            "value" : "Iscriviti con Apple"
           }
         },
         "ja" : {
@@ -1348,13 +1294,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "애플로 회원가입"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Registruotis naudojant „Apple“"
+            "value" : "Apple로 등록"
           }
         },
         "nb" : {
@@ -1366,25 +1306,25 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aanmelden met Apple"
+            "value" : "Meld je aan met Apple"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zarejestruj się przez Apple"
+            "value" : "Zarejestruj się, używając konta Apple"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cadastre-se com a Apple"
+            "value" : "Registre-se com a Apple"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Зарегистрироваться через Apple"
+            "value" : "Зарегистрироваться с Apple"
           }
         },
         "sv" : {
@@ -1396,31 +1336,31 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ลงทะเบียนด้วย Apple"
+            "value" : "สมัครใช้ด้วย Apple"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apple ile kayıt ol"
+            "value" : "Apple ile Kaydol"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Зареєструватися через Apple"
+            "value" : "Реєстрація з Apple"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用苹果注册"
+            "value" : "通过Apple注册"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 Apple 註冊"
+            "value" : "使用Apple註冊"
           }
         }
       }
@@ -1430,19 +1370,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Registrace přes Google"
+            "value" : "Zaregistrovat se přes Google"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tilmeld med Google"
+            "value" : "Tilmeld dig med Google"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit Google registrieren"
+            "value" : "Mit Google anmelden"
           }
         },
         "en" : {
@@ -1460,25 +1400,25 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S'inscrire avec Google"
+            "value" : "S’inscrire avec Google"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הירשם באמצעות גוגל"
+            "value" : "הרשמה באמצעות Google"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Google के साथ साइन अप करें"
+            "value" : "Google से साइन अप करें"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Registrati con Google"
+            "value" : "Iscriviti con Google"
           }
         },
         "ja" : {
@@ -1490,13 +1430,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "구글로 회원가입"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Registruotis naudojant „Google“"
+            "value" : "Google로 등록"
           }
         },
         "nb" : {
@@ -1508,25 +1442,25 @@
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aanmelden met Google"
+            "value" : "Meld je aan met Google"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zarejestruj się przez Google"
+            "value" : "Zarejestruj się, używając konta Google"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cadastre-se com o Google"
+            "value" : "Registre-se com o Google"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Зарегистрироваться через Google"
+            "value" : "Зарегистрироваться с Google"
           }
         },
         "sv" : {
@@ -1538,31 +1472,31 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ลงทะเบียนด้วย Google"
+            "value" : "สมัครใช้ด้วย Google"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Google ile kayıt ol"
+            "value" : "Google ile Kaydol"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Зареєструватися через Google"
+            "value" : "Реєстрація з Google"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用谷歌注册"
+            "value" : "通过Google注册"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "用 Google 註冊"
+            "value" : "使用Google註冊"
           }
         }
       }
@@ -1634,12 +1568,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "로그인 중..."
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prisijungimas..."
           }
         },
         "nb" : {
@@ -1778,12 +1706,6 @@
             "value" : "회원 가입 중..."
           }
         },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Registruojamasi..."
-          }
-        },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1918,12 +1840,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "성공"
-          }
-        },
-        "lt" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pavyko"
           }
         },
         "nb" : {
