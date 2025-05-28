@@ -1,12 +1,54 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Sign in failed" : {
+    "Continue with Apple" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue with Apple"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "失敗"
+            "value" : "Appleで続ける"
+          }
+        }
+      }
+    },
+    "Continue with Google" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue with Google"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Googleで続ける"
+          }
+        }
+      }
+    },
+    "Sign in failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in failed"
+          }
+        }
+      }
+    },
+    "Sign in successful" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in successful"
           }
         }
       }
@@ -28,6 +70,54 @@
         }
       }
     },
+    "Sign in with Google" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in with Google"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Googleでサインイン"
+          }
+        }
+      }
+    },
+    "Sign up with Apple" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up with Apple"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appleで登録"
+          }
+        }
+      }
+    },
+    "Sign up with Google" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up with Google"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Googleで登録"
+          }
+        }
+      }
+    },
     "Signing in..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -44,7 +134,7 @@
           }
         }
       }
-    },
+    }
   },
   "version" : "1.0"
 }
