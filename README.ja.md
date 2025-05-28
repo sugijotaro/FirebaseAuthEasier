@@ -1,5 +1,10 @@
 # FirebaseAuthEasier
 
+[![Swift Package Manager Compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+[![Platform](https://img.shields.io/badge/Platform-iOS%2015.0%2B-blue.svg)](https://developer.apple.com/ios/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Swift](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
+
 FirebaseAuthEasierは、Firebase Authentication（Apple/Googleサインイン）を**SwiftUIアプリに**簡単に組み込むためのSwiftパッケージです。
 
 ## 特徴
@@ -162,6 +167,13 @@ SignInButton(
     // ボタン押下時処理
 }
 ```
+
+## コントリビューション
+このプロジェクトへの貢献を歓迎しています！
+
+- バグ報告や機能リクエストは[Issues](https://github.com/sugijotaro/FirebaseAuthEasier/issues)からお知らせください
+- プルリクエストも大歓迎です
+- 改善案やフィードバックがありましたら、お気軽にご連絡ください
 
 ## 注意事項
 - Firebase/GoogleSignInのセットアップが正しく行われていない場合、認証が失敗します。
