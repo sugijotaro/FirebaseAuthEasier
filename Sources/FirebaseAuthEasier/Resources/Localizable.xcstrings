@@ -1,2886 +1,1999 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "By continuing, you are indicating that you accept our [Privacy Policy](%@).": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "By continuing, you are indicating that you accept our [Privacy Policy](%@).",
-            "state": "translated"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "By continuing, you are indicating that you accept our [Privacy Policy](%@)." : {
+      "comment" : "Legal notice with only Privacy Policy",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokračováním vyjadřujete souhlas s našimi [zásadami ochrany osobních údajů](%@)."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "続行することで、[プライバシーポリシー](%@)に同意したものとみなされます。",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ved at fortsætte indikerer du, at du accepterer vores [Privatlivspolitik](%@)."
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continuando, accetti la nostra [Privacy Policy](%@).",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indem Sie fortfahren, erklären Sie sich mit unserer [Datenschutzrichtlinie](%@) einverstanden."
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовжуючи, ви погоджуєтеся з нашою [Політикою конфіденційності](%@).",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing, you are indicating that you accept our [Privacy Policy](%@)."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Door verder te gaan, geeft u aan dat u ons [Privacybeleid](%@) accepteert.",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al continuar, indicas que aceptas nuestra [Política de Privacidad](%@)."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Genom att fortsätta godkänner du vår [integritetspolicy](%@).",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En continuant, vous indiquez que vous acceptez notre [Politique de Confidentialité](%@)."
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Al continuar, indicas que aceptas nuestra [Política de Privacidad](%@).",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "על ידי המשך, אתה מציין שאתה מקבל את [מדיניות הפרטיות](%@) שלנו."
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "โดยการดำเนินการต่อ คุณยอมรับ[นโยบายความเป็นส่วนตัว](%@)ของเรา",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जारी रखने से आप हमारी [गोपनीयता नीति](%@) को स्वीकार करने का संकेत दे रहे हैं।"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračováním vyjadřujete souhlas s našimi [zásadami ochrany osobních údajů](%@).",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuando, accetti la nostra [Privacy Policy](%@)."
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Ved at fortsætte indikerer du, at du accepterer vores [Privatlivspolitik](%@).",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行することで、[プライバシーポリシー](%@)に同意したものとみなされます。"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Devam ederek, [Gizlilik Politikamızı](%@) kabul ettiğinizi belirtmiş oluyorsunuz.",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속함으로써 당사의 [개인정보 처리방침](%@)에 동의하게 됩니다."
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Indem Sie fortfahren, erklären Sie sich mit unserer [Datenschutzrichtlinie](%@) einverstanden.",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tęsdami patvirtinate, kad sutinkate su mūsų [Privatumo politika](%@)."
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Ved å fortsette, indikerer du at du aksepterer våre [personvernregler](%@).",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ved å fortsette, indikerer du at du aksepterer våre [personvernregler](%@)."
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "जारी रखने से आप हमारी [गोपनीयता नीति](%@) को स्वीकार करने का संकेत दे रहे हैं।",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Door verder te gaan, geeft u aan dat u ons [Privacybeleid](%@) accepteert."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "En continuant, vous indiquez que vous acceptez notre [Politique de Confidentialité](%@).",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuując, wyrażasz zgodę na naszą [Politykę prywatności](%@)."
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "על ידי המשך, אתה מציין שאתה מקבל את [מדיניות הפרטיות](%@) שלנו.",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ao continuar, você indica que aceita nossa [Política de Privacidade](%@)."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Ao continuar, você indica que aceita nossa [Política de Privacidade](%@).",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжая, вы подтверждаете, что принимаете нашу [Политику конфиденциальности](%@)."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuując, wyrażasz zgodę na naszą [Politykę prywatności](%@).",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genom att fortsätta godkänner du vår [integritetspolicy](%@)."
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęsdami patvirtinate, kad sutinkate su mūsų [Privatumo politika](%@).",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โดยการดำเนินการต่อ คุณยอมรับ[นโยบายความเป็นส่วนตัว](%@)ของเรา"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжая, вы подтверждаете, что принимаете нашу [Политику конфиденциальности](%@).",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam ederek, [Gizlilik Politikamızı](%@) kabul ettiğinizi belirtmiş oluyorsunuz."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续使用即表明您同意我们的[隐私政策](%@)。",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжуючи, ви погоджуєтеся з нашою [Політикою конфіденційності](%@)."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續使用即表示您同意我們的[隱私政策](%@)。",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续使用即表明您同意我们的[隐私政策](%@)。"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "계속함으로써 당사의 [개인정보 처리방침](%@)에 동의하게 됩니다.",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續使用即表示您同意我們的[隱私政策](%@)。"
           }
         }
-      },
-      "extractionState": null,
-      "comment": "Legal notice with only Privacy Policy"
+      }
     },
-    "By continuing, you are indicating that you accept our [Terms of Service](%@) and [Privacy Policy](%@).": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "By continuing, you are indicating that you accept our [Terms of Service](%1$@) and [Privacy Policy](%2$@).",
-            "state": "new"
+    "By continuing, you are indicating that you accept our [Terms of Service](%@) and [Privacy Policy](%@)." : {
+      "comment" : "Legal notice with both Terms of Service and Privacy Policy",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokračováním vyjadřujete souhlas s našimi [podmínkami služby](%1$@) a [zásadami ochrany osobních údajů](%2$@)."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "続行することで、[利用規約](%1$@)および[プライバシーポリシー](%2$@)に同意したものとみなされます。",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ved at fortsætte indikerer du, at du accepterer vores [Servicevilkår](%1$@) og [Privatlivspolitik](%2$@)."
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continuando, accetti i nostri [Termini di Servizio](%1$@) e [Privacy Policy](%2$@).",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indem Sie fortfahren, erklären Sie sich mit unseren [Nutzungsbedingungen](%1$@) und [Datenschutzrichtlinien](%2$@) einverstanden."
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовжуючи, ви погоджуєтеся з нашими [Умовами обслуговування](%1$@) та [Політикою конфіденційності](%2$@).",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "By continuing, you are indicating that you accept our [Terms of Service](%1$@) and [Privacy Policy](%2$@)."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Door verder te gaan, geeft u aan dat u onze [Gebruiksvoorwaarden](%1$@) en [Privacybeleid](%2$@) accepteert.",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al continuar, indicas que aceptas nuestros [Términos de Servicio](%1$@) y [Política de Privacidad](%2$@)."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Genom att fortsätta godkänner du våra [användarvillkor](%1$@) och [integritetspolicy](%2$@).",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En continuant, vous indiquez que vous acceptez nos [Conditions d'Utilisation](%1$@) et [Politique de Confidentialité](%2$@)."
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Al continuar, indicas que aceptas nuestros [Términos de Servicio](%1$@) y [Política de Privacidad](%2$@).",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "על ידי המשך, אתה מציין שאתה מקבל את [תנאי השירות](%1$@) ו[מדיניות הפרטיות](%2$@) שלנו."
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "โดยการดำเนินการต่อ คุณยอมรับ[ข้อกำหนดในการให้บริการ](%1$@)และ[นโยบายความเป็นส่วนตัว](%2$@)ของเรา",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जारी रखने से आप हमारी [सेवा शर्तों](%1$@) और [गोपनीयता नीति](%2$@) को स्वीकार करने का संकेत दे रहे हैं।"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračováním vyjadřujete souhlas s našimi [podmínkami služby](%1$@) a [zásadami ochrany osobních údajů](%2$@).",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuando, accetti i nostri [Termini di Servizio](%1$@) e [Privacy Policy](%2$@)."
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Ved at fortsætte indikerer du, at du accepterer vores [Servicevilkår](%1$@) og [Privatlivspolitik](%2$@).",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行することで、[利用規約](%1$@)および[プライバシーポリシー](%2$@)に同意したものとみなされます。"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Devam ederek, [Hizmet Şartlarımızı](%1$@) ve [Gizlilik Politikamızı](%2$@) kabul ettiğinizi belirtmiş oluyorsunuz.",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속함으로써 당사의 [이용약관](%1$@)과 [개인정보 처리방침](%2$@)에 동의하게 됩니다."
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Indem Sie fortfahren, erklären Sie sich mit unseren [Nutzungsbedingungen](%1$@) und [Datenschutzrichtlinien](%2$@) einverstanden.",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tęsdami patvirtinate, kad sutinkate su mūsų [Paslaugų teikimo sąlygomis](%1$@) ir [Privatumo politika](%2$@)."
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Ved å fortsette, indikerer du at du aksepterer våre [vilkår for bruk](%1$@) og [personvernregler](%2$@).",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ved å fortsette, indikerer du at du aksepterer våre [vilkår for bruk](%1$@) og [personvernregler](%2$@)."
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "जारी रखने से आप हमारी [सेवा शर्तों](%1$@) और [गोपनीयता नीति](%2$@) को स्वीकार करने का संकेत दे रहे हैं।",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Door verder te gaan, geeft u aan dat u onze [Gebruiksvoorwaarden](%1$@) en [Privacybeleid](%2$@) accepteert."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "En continuant, vous indiquez que vous acceptez nos [Conditions d'Utilisation](%1$@) et [Politique de Confidentialité](%2$@).",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuując, wyrażasz zgodę na nasze [Warunki świadczenia usług](%1$@) oraz [Politykę prywatności](%2$@)."
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "על ידי המשך, אתה מציין שאתה מקבל את [תנאי השירות](%1$@) ו[מדיניות הפרטיות](%2$@) שלנו.",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ao continuar, você indica que aceita nossos [Termos de Serviço](%1$@) e [Política de Privacidade](%2$@)."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Ao continuar, você indica que aceita nossos [Termos de Serviço](%1$@) e [Política de Privacidade](%2$@).",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжая, вы подтверждаете, что принимаете наши [Условия обслуживания](%1$@) и [Политику конфиденциальности](%2$@)."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuując, wyrażasz zgodę na nasze [Warunki świadczenia usług](%1$@) oraz [Politykę prywatności](%2$@).",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genom att fortsätta godkänner du våra [användarvillkor](%1$@) och [integritetspolicy](%2$@)."
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęsdami patvirtinate, kad sutinkate su mūsų [Paslaugų teikimo sąlygomis](%1$@) ir [Privatumo politika](%2$@).",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โดยการดำเนินการต่อ คุณยอมรับ[ข้อกำหนดในการให้บริการ](%1$@)และ[นโยบายความเป็นส่วนตัว](%2$@)ของเรา"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжая, вы подтверждаете, что принимаете наши [Условия обслуживания](%1$@) и [Политику конфиденциальности](%2$@).",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam ederek, [Hizmet Şartlarımızı](%1$@) ve [Gizlilik Politikamızı](%2$@) kabul ettiğinizi belirtmiş oluyorsunuz."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续使用即表明您同意我们的[服务条款](%1$@)和[隐私政策](%2$@)。",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжуючи, ви погоджуєтеся з нашими [Умовами обслуговування](%1$@) та [Політикою конфіденційності](%2$@)."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續使用即表示您同意我們的[服務條款](%1$@)和[隱私政策](%2$@)。",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续使用即表明您同意我们的[服务条款](%1$@)和[隐私政策](%2$@)。"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "계속함으로써 당사의 [이용약관](%1$@)과 [개인정보 처리방침](%2$@)에 동의하게 됩니다.",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續使用即表示您同意我們的[服務條款](%1$@)和[隱私政策](%2$@)。"
           }
         }
-      },
-      "extractionState": null,
-      "comment": "Legal notice with both Terms of Service and Privacy Policy"
+      }
     },
-    "By continuing, you are indicating that you accept our [Terms of Service](%@).": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "By continuing, you are indicating that you accept our [Terms of Service](%@).",
-            "state": "translated"
+    "By continuing, you are indicating that you accept our [Terms of Service](%@)." : {
+      "comment" : "Legal notice with only Terms of Service",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokračováním vyjadřujete souhlas s našimi [podmínkami služby](%@)."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "続行することで、[利用規約](%@)に同意したものとみなされます。",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ved at fortsætte indikerer du, at du accepterer vores [Servicevilkår](%@)."
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continuando, accetti i nostri [Termini di Servizio](%@).",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indem Sie fortfahren, erklären Sie sich mit unseren [Nutzungsbedingungen](%@) einverstanden."
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовжуючи, ви погоджуєтеся з нашими [Умовами обслуговування](%@).",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing, you are indicating that you accept our [Terms of Service](%@)."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Door verder te gaan, geeft u aan dat u onze [Gebruiksvoorwaarden](%@) accepteert.",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al continuar, indicas que aceptas nuestros [Términos de Servicio](%@)."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Genom att fortsätta godkänner du våra [användarvillkor](%@).",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En continuant, vous indiquez que vous acceptez nos [Conditions d'Utilisation](%@)."
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Al continuar, indicas que aceptas nuestros [Términos de Servicio](%@).",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "על ידי המשך, אתה מציין שאתה מקבל את [תנאי השירות](%@) שלנו."
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "โดยการดำเนินการต่อ คุณยอมรับ[ข้อกำหนดในการให้บริการ](%@)ของเรา",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जारी रखने से आप हमारी [सेवा शर्तों](%@) को स्वीकार करने का संकेत दे रहे हैं।"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračováním vyjadřujete souhlas s našimi [podmínkami služby](%@).",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuando, accetti i nostri [Termini di Servizio](%@)."
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Ved at fortsætte indikerer du, at du accepterer vores [Servicevilkår](%@).",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続行することで、[利用規約](%@)に同意したものとみなされます。"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Devam ederek, [Hizmet Şartlarımızı](%@) kabul ettiğinizi belirtmiş oluyorsunuz.",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속함으로써 당사의 [이용약관](%@)에 동의하게 됩니다."
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Indem Sie fortfahren, erklären Sie sich mit unseren [Nutzungsbedingungen](%@) einverstanden.",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tęsdami patvirtinate, kad sutinkate su mūsų [Paslaugų teikimo sąlygomis](%@)."
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Ved å fortsette, indikerer du at du aksepterer våre [vilkår for bruk](%@).",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ved å fortsette, indikerer du at du aksepterer våre [vilkår for bruk](%@)."
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "जारी रखने से आप हमारी [सेवा शर्तों](%@) को स्वीकार करने का संकेत दे रहे हैं।",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Door verder te gaan, geeft u aan dat u onze [Gebruiksvoorwaarden](%@) accepteert."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "En continuant, vous indiquez que vous acceptez nos [Conditions d'Utilisation](%@).",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuując, wyrażasz zgodę na nasze [Warunki świadczenia usług](%@)."
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "על ידי המשך, אתה מציין שאתה מקבל את [תנאי השירות](%@) שלנו.",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ao continuar, você indica que aceita nossos [Termos de Serviço](%@)."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Ao continuar, você indica que aceita nossos [Termos de Serviço](%@).",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжая, вы подтверждаете, что принимаете наши [Условия обслуживания](%@)."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuując, wyrażasz zgodę na nasze [Warunki świadczenia usług](%@).",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genom att fortsätta godkänner du våra [användarvillkor](%@)."
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęsdami patvirtinate, kad sutinkate su mūsų [Paslaugų teikimo sąlygomis](%@).",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โดยการดำเนินการต่อ คุณยอมรับ[ข้อกำหนดในการให้บริการ](%@)ของเรา"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжая, вы подтверждаете, что принимаете наши [Условия обслуживания](%@).",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam ederek, [Hizmet Şartlarımızı](%@) kabul ettiğinizi belirtmiş oluyorsunuz."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续使用即表明您同意我们的[服务条款](%@)。",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжуючи, ви погоджуєтеся з нашими [Умовами обслуговування](%@)."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續使用即表示您同意我們的[服務條款](%@)。",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续使用即表明您同意我们的[服务条款](%@)。"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "계속함으로써 당사의 [이용약관](%@)에 동의하게 됩니다.",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續使用即表示您同意我們的[服務條款](%@)。"
           }
         }
-      },
-      "extractionState": null,
-      "comment": "Legal notice with only Terms of Service"
+      }
     },
-    "Continue failed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Continue failed",
-            "state": "translated"
+    "Continue with Apple" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokračovat přes Apple"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "続行に失敗しました",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsæt med Apple"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continuazione fallita",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Apple fortfahren"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовження зазнало невдачі",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue with Apple"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Doorgaan mislukt",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar con Apple"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Fortsättningen misslyckades",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer avec Apple"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Continuar fallido",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "המשך עם אפל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "ดำเนินการต่อไม่สำเร็จ",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple के साथ जारी रखें"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračování selhalo",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continua con Apple"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Fortsættelse mislykkedes",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appleで続ける"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Devam etme başarısız",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "애플로 계속"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Fortfahren fehlgeschlagen",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tęsti naudojant „Apple“"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Fortsettelse mislyktes",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsett med Apple"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "जारी रखना असफल",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgaan met Apple"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Échec de la continuation",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuuj przez Apple"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "ההמשך נכשל",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar com a Apple"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Falha ao continuar",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить через Apple"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuacja nie powiodła się",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsätt med Apple"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęstis nepavyko",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดำเนินการต่อด้วย Apple"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжение не удалось",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple ile devam et"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续失败",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжити через Apple"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續失敗",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续使用苹果"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "계속하기 실패",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續用 Apple"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Continue successful": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Continue successful",
-            "state": "translated"
+    "Continue with Google" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokračovat přes Google"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "続行に成功しました",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsæt med Google"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continuazione avvenuta con successo",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Google fortfahren"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовження успішне",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue with Google"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Doorgaan geslaagd",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar con Google"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Fortsättningen lyckades",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer avec Google"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Continuar con éxito",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "המשך עם גוגל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "ดำเนินการต่อสำเร็จ",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google के साथ जारी रखें"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračování úspěšné",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continua con Google"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Fortsættelse lykkedes",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Googleで続ける"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Devam etme başarılı",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구글로 계속"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Fortfahren erfolgreich",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tęsti naudojant „Google“"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Fortsettelse vellykket",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsett med Google"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "जारी रखना सफल",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgaan met Google"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Continuation réussie",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontynuuj przez Google"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "ההמשך הצליח",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar com o Google"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Continuação bem-sucedida",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продолжить через Google"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuacja zakończona sukcesem",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortsätt med Google"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęstis sėkmingas",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดำเนินการต่อด้วย Google"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжение успешно",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google ile devam et"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续成功",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжити через Google"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續成功",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续使用谷歌"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "계속하기 성공",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "繼續用 Google"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Continue with Apple": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Continue with Apple",
-            "state": "translated"
+    "Failed" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selhání"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "Appleで続ける",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mislykkedes"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continua con Apple",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehlgeschlagen"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовжити через Apple",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Doorgaan met Apple",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fallado"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Fortsätt med Apple",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Continuar con Apple",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נכשל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "ดำเนินการต่อด้วย Apple",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "असफल"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračovat přes Apple",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non riuscito"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Fortsæt med Apple",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失敗"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Apple ile devam et",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "실패"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Mit Apple fortfahren",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepavyko"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Fortsett med Apple",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mislyktes"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "Apple के साथ जारी रखें",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mislukt"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Continuer avec Apple",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie powiodło się"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "המשך עם אפל",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Continuar com a Apple",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuuj przez Apple",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Misslyckades"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęsti naudojant „Apple“",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ล้มเหลว"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжить через Apple",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başarısız"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续使用苹果",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невдача"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續用 Apple",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失败"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "애플로 계속",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失敗"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Continue with Google": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Continue with Google",
-            "state": "translated"
+    "Processing..." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zpracovává se..."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "Googleで続ける",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Behandler..."
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Continua con Google",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird verarbeitet..."
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Продовжити через Google",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Processing..."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Doorgaan met Google",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procesando..."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Fortsätt med Google",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traitement..."
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Continuar con Google",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בתהליך..."
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "ดำเนินการต่อด้วย Google",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रक्रिया हो रही है..."
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Pokračovat přes Google",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elaborazione in corso..."
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Fortsæt med Google",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "処理中…"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Google ile devam et",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "처리 중..."
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Mit Google fortfahren",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apdorojama..."
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Fortsett med Google",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Behandler..."
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "Google के साथ जारी रखें",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwerken..."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Continuer avec Google",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przetwarzanie..."
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "המשך עם גוגל",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Processando..."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Continuar com o Google",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обработка..."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Kontynuuj przez Google",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbetar..."
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Tęsti naudojant „Google“",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังดำเนินการ..."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Продолжить через Google",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşleniyor..."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "继续使用谷歌",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обробка..."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "繼續用 Google",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "处理中..."
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "구글로 계속",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "處理中..."
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Processing...": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Processing...",
-            "state": "translated"
+    "Sign in with Apple" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přihlášení přes Apple"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "処理中…",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log ind med Apple"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Elaborazione in corso...",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Apple anmelden"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Обробка...",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in with Apple"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Verwerken...",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar sesión con Apple"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Bearbetar...",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se connecter avec Apple"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Procesando...",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "היכנס באמצעות אפל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "กำลังดำเนินการ...",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple के साथ साइन इन करें"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Zpracovává se...",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accedi con Apple"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Behandler...",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appleでサインイン"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "İşleniyor...",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "애플로 로그인"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Wird verarbeitet...",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prisijungti naudojant „Apple“"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Behandler...",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logg inn med Apple"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "प्रक्रिया हो रही है...",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inloggen met Apple"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Traitement...",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaloguj się przez Apple"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "בתהליך...",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrar com a Apple"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Processando...",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Войти через Apple"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Przetwarzanie...",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logga in med Apple"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Apdorojama...",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เข้าสู่ระบบด้วย Apple"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Обработка...",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple ile giriş yap"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "处理中...",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увійти через Apple"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "處理中...",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用苹果登录"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "처리 중...",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用 Apple 登入"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Sign in failed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign in failed",
-            "state": "translated"
+    "Sign in with Google" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přihlášení přes Google"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "サインインに失敗しました",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log ind med Google"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Accesso fallito",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Google anmelden"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Вхід невдалий",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in with Google"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Inloggen mislukt",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar sesión con Google"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Inloggning misslyckades",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se connecter avec Google"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Inicio de sesión fallido",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "היכנס באמצעות גוגל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "เข้าสู่ระบบไม่สำเร็จ",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google के साथ साइन इन करें"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Přihlášení selhalo",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accedi con Google"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Log ind mislykkedes",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Googleでサインイン"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Giriş başarısız",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구글로 로그인"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Anmeldung fehlgeschlagen",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prisijungti naudojant „Google“"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Innlogging mislyktes",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logg inn med Google"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "साइन इन असफल",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inloggen met Google"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Échec de la connexion",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaloguj się przez Google"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "הכניסה נכשלה",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrar com o Google"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Falha no login",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Войти через Google"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Logowanie nie powiodło się",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logga in med Google"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Prisijungimas nepavyko",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เข้าสู่ระบบด้วย Google"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Вход не удался",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google ile giriş yap"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "登录失败",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увійти через Google"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "登入失敗",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用谷歌登录"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "로그인 실패",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用 Google 登入"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Sign in successful": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign in successful",
-            "state": "translated"
+    "Sign up with Apple" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrace přes Apple"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "サインインに成功しました",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilmeld med Apple"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Accesso avvenuto con successo",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Apple registrieren"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Вхід успішний",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up with Apple"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Inloggen geslaagd",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrarse con Apple"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Inloggning lyckades",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'inscrire avec Apple"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Inicio de sesión exitoso",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הירשם באמצעות אפל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "เข้าสู่ระบบสำเร็จ",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple के साथ साइन अप करें"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Přihlášení úspěšné",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrati con Apple"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Log ind lykkedes",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appleで登録"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Giriş başarılı",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "애플로 회원가입"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Anmeldung erfolgreich",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registruotis naudojant „Apple“"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Innlogging vellykket",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrer deg med Apple"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "साइन इन सफल",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aanmelden met Apple"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Connexion réussie",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zarejestruj się przez Apple"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "הכניסה הצליחה",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cadastre-se com a Apple"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Login bem-sucedido",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зарегистрироваться через Apple"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Logowanie zakończone sukcesem",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrera dig med Apple"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Prisijungimas sėkmingas",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลงทะเบียนด้วย Apple"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Вход успешен",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple ile kayıt ol"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "登录成功",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зареєструватися через Apple"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "登入成功",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用苹果注册"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "로그인 성공",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用 Apple 註冊"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Sign in with Apple": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign in with Apple",
-            "state": "translated"
+    "Sign up with Google" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrace přes Google"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "Appleでサインイン",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilmeld med Google"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Accedi con Apple",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Google registrieren"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Увійти через Apple",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up with Google"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Inloggen met Apple",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrarse con Google"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Logga in med Apple",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'inscrire avec Google"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Iniciar sesión con Apple",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הירשם באמצעות גוגל"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "เข้าสู่ระบบด้วย Apple",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google के साथ साइन अप करें"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Přihlášení přes Apple",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrati con Google"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Log ind med Apple",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Googleで登録"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Apple ile giriş yap",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구글로 회원가입"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Mit Apple anmelden",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registruotis naudojant „Google“"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Logg inn med Apple",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrer deg med Google"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "Apple के साथ साइन इन करें",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aanmelden met Google"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Se connecter avec Apple",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zarejestruj się przez Google"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "היכנס באמצעות אפל",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cadastre-se com o Google"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Entrar com a Apple",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зарегистрироваться через Google"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Zaloguj się przez Apple",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrera dig med Google"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Prisijungti naudojant „Apple“",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ลงทะเบียนด้วย Google"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Войти через Apple",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google ile kayıt ol"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "使用苹果登录",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зареєструватися через Google"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "用 Apple 登入",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用谷歌注册"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "애플로 로그인",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用 Google 註冊"
           }
         }
-      },
-      "extractionState": "manual",
-      "comment": null
+      }
     },
-    "Sign in with Google": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign in with Google",
-            "state": "translated"
+    "Signing in..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přihlašování..."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "Googleでサインイン",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logger ind..."
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Accedi con Google",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldung läuft..."
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Увійти через Google",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signing in..."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Inloggen met Google",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciando sesión..."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Logga in med Google",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexion en cours..."
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Iniciar sesión con Google",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מתבצעת כניסה..."
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "เข้าสู่ระบบด้วย Google",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "साइन इन हो रहा है..."
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Přihlášení přes Google",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accesso in corso..."
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Log ind med Google",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サインイン中…"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Google ile giriş yap",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인 중..."
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Mit Google anmelden",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prisijungimas..."
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Logg inn med Google",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logger inn..."
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "Google के साथ साइन इन करें",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inloggen..."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Se connecter avec Google",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logowanie w toku..."
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "היכנס באמצעות גוגל",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autenticando-se..."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Entrar com o Google",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вход в систему..."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Zaloguj się przez Google",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loggar in..."
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Prisijungti naudojant „Google“",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังเข้าสู่ระบบ..."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Войти через Google",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş yapılıyor..."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "使用谷歌登录",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вхід..."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "用 Google 登入",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在登录..."
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "구글로 로그인",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在登入..."
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Sign up failed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign up failed",
-            "state": "translated"
+    "Signing up..." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrace..."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "登録に失敗しました",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilmelder..."
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Registrazione fallita",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrierung läuft..."
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Реєстрація зазнала невдачі",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signing up..."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Aanmelden mislukt",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrándose..."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Registrering misslyckades",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inscription en cours..."
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Registro fallido",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מתבצעת הרשמה..."
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "ลงทะเบียนไม่สำเร็จ",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "साइन अप हो रहा है..."
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Registrace selhala",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrazione in corso..."
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Tilmelding mislykkedes",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登録中…"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Kayıt başarısız",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "회원 가입 중..."
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Registrierung fehlgeschlagen",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registruojamasi..."
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Registrering mislyktes",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrerer..."
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "साइन अप असफल",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aanmelden..."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Échec de l'inscription",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejestracja w toku..."
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "ההרשמה נכשלה",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrando-se..."
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Falha no cadastro",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регистрация..."
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Rejestracja nie powiodła się",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrerar..."
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Registracija nepavyko",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังลงทะเบียน..."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Регистрация не удалась",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kayıt olunuyor..."
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "注册失败",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реєстрація..."
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "註冊失敗",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在注册..."
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "회원가입 실패",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在註冊..."
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     },
-    "Sign up successful": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign up successful",
-            "state": "translated"
+    "Success" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úspěch"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "value": "登録に成功しました",
-            "state": "translated"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Succes"
           }
         },
-        "it": {
-          "stringUnit": {
-            "value": "Registrazione avvenuta con successo",
-            "state": "translated"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erfolg"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "value": "Реєстрація успішна",
-            "state": "translated"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Success"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "value": "Aanmelden geslaagd",
-            "state": "translated"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éxito"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "value": "Registrering lyckades",
-            "state": "translated"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Succès"
           }
         },
-        "es": {
-          "stringUnit": {
-            "value": "Registro exitoso",
-            "state": "translated"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הצלחה"
           }
         },
-        "th": {
-          "stringUnit": {
-            "value": "ลงทะเบียนสำเร็จ",
-            "state": "translated"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सफल"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "value": "Registrace úspěšná",
-            "state": "translated"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successo"
           }
         },
-        "da": {
-          "stringUnit": {
-            "value": "Tilmelding lykkedes",
-            "state": "translated"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "value": "Kayıt başarılı",
-            "state": "translated"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "성공"
           }
         },
-        "de": {
-          "stringUnit": {
-            "value": "Registrierung erfolgreich",
-            "state": "translated"
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pavyko"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "value": "Registrering vellykket",
-            "state": "translated"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vellykket"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "value": "साइन अप सफल",
-            "state": "translated"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Succes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "value": "Inscription réussie",
-            "state": "translated"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sukces"
           }
         },
-        "he": {
-          "stringUnit": {
-            "value": "ההרשמה הצליחה",
-            "state": "translated"
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sucesso"
           }
         },
-        "pt": {
-          "stringUnit": {
-            "value": "Cadastro bem-sucedido",
-            "state": "translated"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успех"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "value": "Rejestracja zakończona sukcesem",
-            "state": "translated"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lyckades"
           }
         },
-        "lt": {
-          "stringUnit": {
-            "value": "Registracija sėkminga",
-            "state": "translated"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สำเร็จ"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "value": "Регистрация успешна",
-            "state": "translated"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başarılı"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "注册成功",
-            "state": "translated"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успіх"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "註冊成功",
-            "state": "translated"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "value": "회원가입 성공",
-            "state": "translated"
-          }
-        }
-      },
-      "extractionState": null,
-      "comment": null
-    },
-    "Sign up with Apple": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign up with Apple",
-            "state": "translated"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "value": "Appleで登録",
-            "state": "translated"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "value": "Registrati con Apple",
-            "state": "translated"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "value": "Зареєструватися через Apple",
-            "state": "translated"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "value": "Aanmelden met Apple",
-            "state": "translated"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "value": "Registrera dig med Apple",
-            "state": "translated"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "value": "Registrarse con Apple",
-            "state": "translated"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "value": "ลงทะเบียนด้วย Apple",
-            "state": "translated"
-          }
-        },
-        "cs": {
-          "stringUnit": {
-            "value": "Registrace přes Apple",
-            "state": "translated"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "value": "Tilmeld med Apple",
-            "state": "translated"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "value": "Apple ile kayıt ol",
-            "state": "translated"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "value": "Mit Apple registrieren",
-            "state": "translated"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "value": "Registrer deg med Apple",
-            "state": "translated"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "value": "Apple के साथ साइन अप करें",
-            "state": "translated"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "value": "S'inscrire avec Apple",
-            "state": "translated"
-          }
-        },
-        "he": {
-          "stringUnit": {
-            "value": "הירשם באמצעות אפל",
-            "state": "translated"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "value": "Cadastre-se com a Apple",
-            "state": "translated"
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "value": "Zarejestruj się przez Apple",
-            "state": "translated"
-          }
-        },
-        "lt": {
-          "stringUnit": {
-            "value": "Registruotis naudojant „Apple“",
-            "state": "translated"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "value": "Зарегистрироваться через Apple",
-            "state": "translated"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "使用苹果注册",
-            "state": "translated"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "用 Apple 註冊",
-            "state": "translated"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "value": "애플로 회원가입",
-            "state": "translated"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功"
           }
         }
-      },
-      "extractionState": null,
-      "comment": null
-    },
-    "Sign up with Google": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Sign up with Google",
-            "state": "translated"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "value": "Googleで登録",
-            "state": "translated"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "value": "Registrati con Google",
-            "state": "translated"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "value": "Зареєструватися через Google",
-            "state": "translated"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "value": "Aanmelden met Google",
-            "state": "translated"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "value": "Registrera dig med Google",
-            "state": "translated"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "value": "Registrarse con Google",
-            "state": "translated"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "value": "ลงทะเบียนด้วย Google",
-            "state": "translated"
-          }
-        },
-        "cs": {
-          "stringUnit": {
-            "value": "Registrace přes Google",
-            "state": "translated"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "value": "Tilmeld med Google",
-            "state": "translated"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "value": "Google ile kayıt ol",
-            "state": "translated"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "value": "Mit Google registrieren",
-            "state": "translated"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "value": "Registrer deg med Google",
-            "state": "translated"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "value": "Google के साथ साइन अप करें",
-            "state": "translated"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "value": "S'inscrire avec Google",
-            "state": "translated"
-          }
-        },
-        "he": {
-          "stringUnit": {
-            "value": "הירשם באמצעות גוגל",
-            "state": "translated"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "value": "Cadastre-se com o Google",
-            "state": "translated"
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "value": "Zarejestruj się przez Google",
-            "state": "translated"
-          }
-        },
-        "lt": {
-          "stringUnit": {
-            "value": "Registruotis naudojant „Google“",
-            "state": "translated"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "value": "Зарегистрироваться через Google",
-            "state": "translated"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "使用谷歌注册",
-            "state": "translated"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "用 Google 註冊",
-            "state": "translated"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "value": "구글로 회원가입",
-            "state": "translated"
-          }
-        }
-      },
-      "extractionState": null,
-      "comment": null
-    },
-    "Signing in...": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Signing in...",
-            "state": "translated"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "value": "サインイン中…",
-            "state": "translated"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "value": "Accesso in corso...",
-            "state": "translated"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "value": "Вхід...",
-            "state": "translated"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "value": "Inloggen...",
-            "state": "translated"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "value": "Loggar in...",
-            "state": "translated"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "value": "Iniciando sesión...",
-            "state": "translated"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "value": "กำลังเข้าสู่ระบบ...",
-            "state": "translated"
-          }
-        },
-        "cs": {
-          "stringUnit": {
-            "value": "Přihlašování...",
-            "state": "translated"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "value": "Logger ind...",
-            "state": "translated"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "value": "Giriş yapılıyor...",
-            "state": "translated"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "value": "Anmeldung läuft...",
-            "state": "translated"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "value": "Logger inn...",
-            "state": "translated"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "value": "साइन इन हो रहा है...",
-            "state": "translated"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "value": "Connexion en cours...",
-            "state": "translated"
-          }
-        },
-        "he": {
-          "stringUnit": {
-            "value": "מתבצעת כניסה...",
-            "state": "translated"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "value": "Autenticando-se...",
-            "state": "translated"
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "value": "Logowanie w toku...",
-            "state": "translated"
-          }
-        },
-        "lt": {
-          "stringUnit": {
-            "value": "Prisijungimas...",
-            "state": "translated"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "value": "Вход в систему...",
-            "state": "translated"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "正在登录...",
-            "state": "translated"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "正在登入...",
-            "state": "translated"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "value": "로그인 중...",
-            "state": "translated"
-          }
-        }
-      },
-      "extractionState": "manual",
-      "comment": null
-    },
-    "Signing up...": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Signing up...",
-            "state": "translated"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "value": "登録中…",
-            "state": "translated"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "value": "Registrazione in corso...",
-            "state": "translated"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "value": "Реєстрація...",
-            "state": "translated"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "value": "Aanmelden...",
-            "state": "translated"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "value": "Registrerar...",
-            "state": "translated"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "value": "Registrándose...",
-            "state": "translated"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "value": "กำลังลงทะเบียน...",
-            "state": "translated"
-          }
-        },
-        "cs": {
-          "stringUnit": {
-            "value": "Registrace...",
-            "state": "translated"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "value": "Tilmelder...",
-            "state": "translated"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "value": "Kayıt olunuyor...",
-            "state": "translated"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "value": "Registrierung läuft...",
-            "state": "translated"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "value": "Registrerer...",
-            "state": "translated"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "value": "साइन अप हो रहा है...",
-            "state": "translated"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "value": "Inscription en cours...",
-            "state": "translated"
-          }
-        },
-        "he": {
-          "stringUnit": {
-            "value": "מתבצעת הרשמה...",
-            "state": "translated"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "value": "Registrando-se...",
-            "state": "translated"
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "value": "Rejestracja w toku...",
-            "state": "translated"
-          }
-        },
-        "lt": {
-          "stringUnit": {
-            "value": "Registruojamasi...",
-            "state": "translated"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "value": "Регистрация...",
-            "state": "translated"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "正在注册...",
-            "state": "translated"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "正在註冊...",
-            "state": "translated"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "value": "회원 가입 중...",
-            "state": "translated"
-          }
-        }
-      },
-      "extractionState": null,
-      "comment": null
-    },
-    "Success": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Success",
-            "state": "translated"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "value": "成功",
-            "state": "translated"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "value": "Successo",
-            "state": "translated"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "value": "Успіх",
-            "state": "translated"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "value": "Succes",
-            "state": "translated"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "value": "Lyckades",
-            "state": "translated"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "value": "Éxito",
-            "state": "translated"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "value": "สำเร็จ",
-            "state": "translated"
-          }
-        },
-        "cs": {
-          "stringUnit": {
-            "value": "Úspěch",
-            "state": "translated"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "value": "Succes",
-            "state": "translated"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "value": "Başarılı",
-            "state": "translated"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "value": "Erfolg",
-            "state": "translated"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "value": "Vellykket",
-            "state": "translated"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "value": "सफल",
-            "state": "translated"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "value": "Succès",
-            "state": "translated"
-          }
-        },
-        "he": {
-          "stringUnit": {
-            "value": "הצלחה",
-            "state": "translated"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "value": "Sucesso",
-            "state": "translated"
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "value": "Sukces",
-            "state": "translated"
-          }
-        },
-        "lt": {
-          "stringUnit": {
-            "value": "Pavyko",
-            "state": "translated"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "value": "Успех",
-            "state": "translated"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "成功",
-            "state": "translated"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "成功",
-            "state": "translated"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "value": "성공",
-            "state": "translated"
-          }
-        }
-      },
-      "extractionState": null,
-      "comment": null
-    },
-    "Failed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "value": "Failed",
-            "state": "translated"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "value": "失敗",
-            "state": "translated"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "value": "Non riuscito",
-            "state": "translated"
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "value": "Невдача",
-            "state": "translated"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "value": "Mislukt",
-            "state": "translated"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "value": "Misslyckades",
-            "state": "translated"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "value": "Fallado",
-            "state": "translated"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "value": "ล้มเหลว",
-            "state": "translated"
-          }
-        },
-        "cs": {
-          "stringUnit": {
-            "value": "Selhání",
-            "state": "translated"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "value": "Mislykkedes",
-            "state": "translated"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "value": "Başarısız",
-            "state": "translated"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "value": "Fehlgeschlagen",
-            "state": "translated"
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "value": "Mislyktes",
-            "state": "translated"
-          }
-        },
-        "hi": {
-          "stringUnit": {
-            "value": "असफल",
-            "state": "translated"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "value": "Échec",
-            "state": "translated"
-          }
-        },
-        "he": {
-          "stringUnit": {
-            "value": "נכשל",
-            "state": "translated"
-          }
-        },
-        "pt": {
-          "stringUnit": {
-            "value": "Falha",
-            "state": "translated"
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "value": "Nie powiodło się",
-            "state": "translated"
-          }
-        },
-        "lt": {
-          "stringUnit": {
-            "value": "Nepavyko",
-            "state": "translated"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "value": "Ошибка",
-            "state": "translated"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "value": "失败",
-            "state": "translated"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "value": "失敗",
-            "state": "translated"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "value": "실패",
-            "state": "translated"
-          }
-        }
-      },
-      "extractionState": null,
-      "comment": null
+      }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
