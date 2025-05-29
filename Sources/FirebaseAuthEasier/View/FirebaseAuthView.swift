@@ -16,9 +16,9 @@ public struct FirebaseAuthView<Content: View>: View {
     public init(
         providers: [SignInProviderType]? = nil,
         labelType: SignInButtonLabelType = .signIn,
-        @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
-        didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
+        didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
+        @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
     ) {
         _viewModel = StateObject(wrappedValue: FirebaseAuthViewModel(
             providers: providers,
