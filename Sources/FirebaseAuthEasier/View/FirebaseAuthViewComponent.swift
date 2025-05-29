@@ -45,15 +45,17 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     public var body: some View {
         VStack(spacing: 0) {
             if #available(iOS 16.0, *) {
-                ViewThatFits {
+                ViewThatFits(in: .vertical) {
                     content()
                     ScrollView {
                         content()
+                            .frame(maxWidth: .infinity)
                     }
                 }
             } else {
                 ScrollView {
                     content()
+                        .frame(maxWidth: .infinity)
                 }
             }
             VStack(spacing: 16) {
