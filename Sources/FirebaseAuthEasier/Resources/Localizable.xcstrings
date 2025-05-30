@@ -413,6 +413,7 @@
       }
     },
     "Continue with Apple" : {
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -549,6 +550,7 @@
       }
     },
     "Continue with Google" : {
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1094,6 +1096,7 @@
       }
     },
     "Sign in with Google" : {
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1230,6 +1233,7 @@
       }
     },
     "Sign up with Apple" : {
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1366,6 +1370,7 @@
       }
     },
     "Sign up with Google" : {
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1502,7 +1507,6 @@
       }
     },
     "Signing in..." : {
-      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
