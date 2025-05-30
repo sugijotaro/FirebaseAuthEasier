@@ -145,8 +145,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     let viewModel = FirebaseAuthViewModel(
         providers: [.apple, .google],
         labelType: .signIn,
-        termsOfServiceURL: URL(string: "apple.com"),
-        privacyPolicyURL: URL(string: "apple.com")
+        termsOfServiceURL: URL(string: "https://example.com/terms"),
+        privacyPolicyURL: URL(string: "https://example.com/privacy")
     )
     return FirebaseAuthViewComponent(
         viewModel: viewModel,

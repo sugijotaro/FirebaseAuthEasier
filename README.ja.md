@@ -59,9 +59,11 @@ struct ContentView: View {
 public init(
     providers: [SignInProviderType]? = nil,
     labelType: SignInButtonLabelType = .signIn,
-    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
+    termsOfServiceURL: URL? = nil,
+    privacyPolicyURL: URL? = nil,
     onSignInStart: ((SignInProviderType) -> Void)? = nil,
-    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
+    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
+    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
 )
 ```
 
@@ -77,6 +79,18 @@ FirebaseAuthView(providers: [.apple]) // Appleサインインのみ
 ボタンのラベル種別（.signIn, .signUp, .continue）を指定します。
 ```swift
 FirebaseAuthView(labelType: .signUp)
+```
+
+#### termsOfServiceURL（デフォルト: nil）
+利用規約のURL。指定すると、サインイン画面下部にメッセージが表示されます。
+```swift
+FirebaseAuthView(termsOfServiceURL: URL(string: "https://example.com/terms"))
+```
+
+#### privacyPolicyURL（デフォルト: nil）
+プライバシーポリシーのURL。指定すると、サインイン画面下部にメッセージが表示されます。
+```swift
+FirebaseAuthView(privacyPolicyURL: URL(string: "https://example.com/privacy"))
 ```
 
 #### content（デフォルト: FirebaseAuthDefaultContentView）
@@ -113,19 +127,32 @@ FirebaseAuthView(didSignIn: { result in
 
 ### 組み合わせ例
 ```swift
-FirebaseAuthView(
-    providers: [.apple, .google],
-    labelType: .continue,
-    onSignInStart: { provider in
-        // ローディング表示やログ出力など
-    },
-    didSignIn: { result in
-        // サインイン完了時の処理
-    }
-) {
-    VStack {
-        Text("アプリへようこそ！")
-        // 任意のカスタムView
+struct ContentView: View {
+    var body: some View {
+        FirebaseAuthView(
+            providers: [.apple, .google],
+            labelType: .continue,
+            termsOfServiceURL: URL(string: "https://example.com/terms")!,
+            privacyPolicyURL: URL(string: "https://example.com/privacy")!,
+            onSignInStart: { provider in
+                print("Sign-in started with provider: \(provider)")
+            },
+            didSignIn: { result in
+                switch result {
+                case .success(let authResult):
+                    print("Sign-in successful")
+                case .failure(let error):
+                    print("Sign-in failed: \(error.localizedDescription)")
+                }
+            }
+        ) {
+            VStack {
+                Image(systemName: "person.circle")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("ようこそ！")
+            }
+        }
     }
 }
 ```
@@ -153,8 +180,8 @@ authService.signOut { result in /* ... */ }
 `SignInButton`はApple/Google用のサインインボタンUIを個別に利用でき、色・ラベル・角丸・枠線など細かくカスタマイズ可能です。
 
 ```swift
-import FirebaseAuthEasier
 import SwiftUI
+import FirebaseAuthEasier
 
 SignInButton(
     provider: .apple,
