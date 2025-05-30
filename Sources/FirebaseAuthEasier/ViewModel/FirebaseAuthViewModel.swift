@@ -13,21 +13,27 @@ import UIKit
 @MainActor
 public final class FirebaseAuthViewModel: ObservableObject {
     @Published public var isSigningIn: Bool = false
+    @Published public private(set) var lastSignInResult: Result<AuthDataResult, Error>? = nil
     public let providers: [SignInProviderType]
     public let labelType: SignInButtonLabelType
+    public let termsOfServiceURL: URL?
+    public let privacyPolicyURL: URL?
     public let onSignInStart: ((SignInProviderType) -> Void)?
     public let didSignIn: ((Result<AuthDataResult, Error>) -> Void)?
-    public private(set) var lastSignInResult: Result<AuthDataResult, Error>? = nil
     private let authService = FirebaseAuthService()
     
     public init(
         providers: [SignInProviderType]? = nil,
         labelType: SignInButtonLabelType = .signIn,
+        termsOfServiceURL: URL? = nil,
+        privacyPolicyURL: URL? = nil,
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
         didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
     ) {
         self.providers = providers ?? [.apple, .google]
         self.labelType = labelType
+        self.termsOfServiceURL = termsOfServiceURL
+        self.privacyPolicyURL = privacyPolicyURL
         self.onSignInStart = onSignInStart
         self.didSignIn = didSignIn
     }

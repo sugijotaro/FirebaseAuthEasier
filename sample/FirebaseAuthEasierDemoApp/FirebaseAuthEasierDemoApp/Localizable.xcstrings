@@ -1,0 +1,250 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Anonymous Sign In" : {
+
+    },
+    "Apple" : {
+
+    },
+    "Automatic" : {
+
+    },
+    "Black" : {
+
+    },
+    "Button Style" : {
+
+    },
+    "Continue" : {
+
+    },
+    "Corner Radius: %lld" : {
+
+    },
+    "Current Provider IDs: %@" : {
+
+    },
+    "Delete Account" : {
+
+    },
+    "FirebaseAuthEasier" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FirebaseAuthEasier"
+          }
+        }
+      }
+    },
+    "FirebaseAuthService" : {
+
+    },
+    "FirebaseAuthView" : {
+
+    },
+    "Fully Customized Auth View" : {
+
+    },
+    "Google" : {
+
+    },
+    "Has Border" : {
+
+    },
+    "Height: %lld" : {
+
+    },
+    "Icon Only" : {
+
+    },
+    "Label Style" : {
+
+    },
+    "Label Type" : {
+
+    },
+    "Link Apple Account" : {
+
+    },
+    "Link Google Account" : {
+
+    },
+    "Provider" : {
+
+    },
+    "Provider IDs & Link" : {
+
+    },
+    "Refresh Provider IDs" : {
+
+    },
+    "Sign In" : {
+
+    },
+    "Sign In Anonymously" : {
+
+    },
+    "Sign Out" : {
+
+    },
+    "Sign Up" : {
+
+    },
+    "SignInButton" : {
+
+    },
+    "SignInButton Customization" : {
+
+    },
+    "Simple Auth View" : {
+
+    },
+    "Switch by Auth State" : {
+
+    },
+    "Title & Icon" : {
+
+    },
+    "Welcome to MyApp!" : {
+
+    },
+    "White" : {
+
+    },
+    "Width: %lld" : {
+
+    },
+    "You are signed in!" : {
+
+    }
+  },
+  "version" : "1.0"
+}

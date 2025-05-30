@@ -1,5 +1,7 @@
 # FirebaseAuthEasier
 
+[日本語READMEはこちら](./README.ja.md)
+
 [![Swift Package Manager Compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2015.0%2B-blue.svg)](https://developer.apple.com/ios/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -40,6 +42,8 @@ In Xcode:
 4. **Add "Sign in with Apple" capability in Xcode project settings**
 5. For Google authentication, obtain OAuth client ID from Google Cloud Console and configure it in your Firebase project
 
+For more detailed setup instructions, see [this article (Japanese only)](https://qiita.com/sugijotaro/items/35daf9f6eba4d88c7bd2)
+
 ## Basic Usage
 ```swift
 import SwiftUI
@@ -52,6 +56,12 @@ struct ContentView: View {
 }
 ```
 
+## Demo App
+
+A demo app is available in the [`sample/FirebaseAuthEasierDemoApp`](sample/FirebaseAuthEasierDemoApp) directory.
+
+You can use this app to see FirebaseAuthEasier in action and as a reference for integration.
+
 ## FirebaseAuthView Customization
 `FirebaseAuthView` can be flexibly customized with the following initializer parameters:
 
@@ -59,9 +69,11 @@ struct ContentView: View {
 public init(
     providers: [SignInProviderType]? = nil,
     labelType: SignInButtonLabelType = .signIn,
-    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
+    termsOfServiceURL: URL? = nil,
+    privacyPolicyURL: URL? = nil,
     onSignInStart: ((SignInProviderType) -> Void)? = nil,
-    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
+    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
+    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
 )
 ```
 
@@ -77,6 +89,18 @@ FirebaseAuthView(providers: [.apple]) // Apple sign-in only
 Specify the button label type (.signIn, .signUp, .continue).
 ```swift
 FirebaseAuthView(labelType: .signUp)
+```
+
+#### termsOfServiceURL (Default: nil)
+URL for Terms of Service. If provided, a legal message will be displayed at the bottom of the sign-in screen.
+```swift
+FirebaseAuthView(termsOfServiceURL: URL(string: "https://example.com/terms"))
+```
+
+#### privacyPolicyURL (Default: nil)
+URL for Privacy Policy. If provided, a legal message will be displayed at the bottom of the sign-in screen.
+```swift
+FirebaseAuthView(privacyPolicyURL: URL(string: "https://example.com/privacy"))
 ```
 
 #### content (Default: FirebaseAuthDefaultContentView)
@@ -113,19 +137,32 @@ FirebaseAuthView(didSignIn: { result in
 
 ### Combined Example
 ```swift
-FirebaseAuthView(
-    providers: [.apple, .google],
-    labelType: .continue,
-    onSignInStart: { provider in
-        // Show loading indicator or log output
-    },
-    didSignIn: { result in
-        // Handle sign-in completion
-    }
-) {
-    VStack {
-        Text("Welcome to our app!")
-        // Any custom view
+struct ContentView: View {
+    var body: some View {
+        FirebaseAuthView(
+            providers: [.apple, .google],
+            labelType: .continue,
+            termsOfServiceURL: URL(string: "https://example.com/terms")!,
+            privacyPolicyURL: URL(string: "https://example.com/privacy")!,
+            onSignInStart: { provider in
+                print("Sign-in started with provider: \(provider)")
+            },
+            didSignIn: { result in
+                switch result {
+                case .success(let authResult):
+                    print("Sign-in successful")
+                case .failure(let error):
+                    print("Sign-in failed: \(error.localizedDescription)")
+                }
+            }
+        ) {
+            VStack {
+                Image(systemName: "person.circle")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Welcome!")
+            }
+        }
     }
 }
 ```
@@ -153,8 +190,8 @@ authService.signOut { result in /* ... */ }
 `SignInButton` provides Apple/Google sign-in button UI that can be used individually, with fine-grained customization for colors, labels, corner radius, borders, and more.
 
 ```swift
-import FirebaseAuthEasier
 import SwiftUI
+import FirebaseAuthEasier
 
 SignInButton(
     provider: .apple,

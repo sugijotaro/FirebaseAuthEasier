@@ -9,58 +9,39 @@ import SwiftUI
 import FirebaseAuth
 
 public struct FirebaseAuthViewComponent<Content: View>: View {
-    public let providers: [SignInProviderType]
-    public let isSigningIn: Bool
-    public let labelType: SignInButtonLabelType
-    public let onSignInStart: ((SignInProviderType) -> Void)?
-    public let handleSignIn: (SignInProviderType) -> Void
+    @ObservedObject public var viewModel: FirebaseAuthViewModel
     public let content: () -> Content
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    public let termsOfServiceURL: URL?
-    public let privacyPolicyURL: URL?
-    public let signInResult: Result<AuthDataResult, Error>?
     
     public init(
-        providers: [SignInProviderType],
-        isSigningIn: Bool,
-        labelType: SignInButtonLabelType = .signIn,
-        onSignInStart: ((SignInProviderType) -> Void)? = nil,
-        handleSignIn: @escaping (SignInProviderType) -> Void,
-        termsOfServiceURL: URL? = nil,
-        privacyPolicyURL: URL? = nil,
-        signInResult: Result<AuthDataResult, Error>? = nil,
+        viewModel: FirebaseAuthViewModel,
         @ViewBuilder content: @escaping () -> Content = { EmptyView() }
     ) {
-        self.providers = providers
-        self.isSigningIn = isSigningIn
-        self.labelType = labelType
-        self.onSignInStart = onSignInStart
-        self.handleSignIn = handleSignIn
-        self.termsOfServiceURL = termsOfServiceURL
-        self.privacyPolicyURL = privacyPolicyURL
-        self.signInResult = signInResult
+        self.viewModel = viewModel
         self.content = content
     }
     
     public var body: some View {
         VStack(spacing: 0) {
             if #available(iOS 16.0, *) {
-                ViewThatFits {
+                ViewThatFits(in: .vertical) {
                     content()
                     ScrollView {
                         content()
+                            .frame(maxWidth: .infinity)
                     }
                 }
             } else {
                 ScrollView {
                     content()
+                        .frame(maxWidth: .infinity)
                 }
             }
             VStack(spacing: 16) {
-                if isSigningIn {
+                if viewModel.isSigningIn {
                     ProgressView(signingInText)
                         .progressViewStyle(CircularProgressViewStyle())
-                } else if let signInResult = signInResult {
+                } else if let signInResult = viewModel.lastSignInResult {
                     switch signInResult {
                     case .success:
                         Label(resultStatusText(true), systemImage: "checkmark.circle.fill")
@@ -75,8 +56,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                 } else {
                     signInButtonsView
                 }
-                if termsOfServiceURL != nil || privacyPolicyURL != nil {
-                    let legalText = legalNoticeMarkdown(terms: termsOfServiceURL, privacy: privacyPolicyURL)
+                if viewModel.termsOfServiceURL != nil || viewModel.privacyPolicyURL != nil {
+                    let legalText = legalNoticeMarkdown(terms: viewModel.termsOfServiceURL, privacy: viewModel.privacyPolicyURL)
                     if let legalText = legalText {
                         Text(.init(legalText))
                             .font(.footnote)
@@ -93,14 +74,14 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     
     private var signInButtonsView: some View {
         VStack(spacing: 8) {
-            ForEach(providers, id: \ .self) { provider in
+            ForEach(viewModel.providers, id: \.self) { provider in
                 let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
                 SignInButton(
                     provider: provider,
                     buttonStyle: buttonStyle,
-                    labelType: labelType,
+                    labelType: viewModel.labelType,
                     hasBorder: hasBorder,
-                    action: { handleSignIn(provider) }
+                    action: { viewModel.handleSignIn(provider: provider) }
                 )
                 .frame(height: 52)
             }
@@ -117,7 +98,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     }
     
     private var signingInText: String {
-        switch labelType {
+        switch viewModel.labelType {
         case .signIn:
             return NSLocalizedString("Signing in...", bundle: Bundle.module, comment: "")
         case .signUp:
@@ -160,32 +141,15 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     }
 }
 
-#Preview("Default") {
-    FirebaseAuthViewComponent(
+#Preview {
+    let viewModel = FirebaseAuthViewModel(
         providers: [.apple, .google],
-        isSigningIn: false,
         labelType: .signIn,
-        onSignInStart: { _ in },
-        handleSignIn: { _ in },
-        termsOfServiceURL: URL(string: "apple.com"),
-        privacyPolicyURL: URL(string: "apple.com"),
-        signInResult: nil,
-        content: {
-            FirebaseAuthDefaultContentView()
-        }
+        termsOfServiceURL: URL(string: "https://example.com/terms"),
+        privacyPolicyURL: URL(string: "https://example.com/privacy")
     )
-}
-
-#Preview("Failure") {
-    FirebaseAuthViewComponent(
-        providers: [.apple, .google],
-        isSigningIn: false,
-        labelType: .signIn,
-        onSignInStart: { _ in },
-        handleSignIn: { _ in },
-        termsOfServiceURL: URL(string: "apple.com"),
-        privacyPolicyURL: URL(string: "apple.com"),
-        signInResult: .failure(NSError(domain: "", code: -1)),
+    return FirebaseAuthViewComponent(
+        viewModel: viewModel,
         content: {
             FirebaseAuthDefaultContentView()
         }

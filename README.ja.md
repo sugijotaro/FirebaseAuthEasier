@@ -40,6 +40,8 @@ Xcodeの場合：
 4. Xcodeのプロジェクト設定で「Sign in with Apple」のCapabilityを追加
 5. Google認証を利用する場合は、Google Cloud ConsoleでOAuthクライアントIDを取得し、Firebaseプロジェクトに設定
 
+より詳しいセットアップ手順は[こちらの記事](https://qiita.com/sugijotaro/items/35daf9f6eba4d88c7bd2)をご覧ください
+
 ## 基本的な使い方
 ```swift
 import SwiftUI
@@ -52,6 +54,12 @@ struct ContentView: View {
 }
 ```
 
+## デモアプリ
+
+[`sample/FirebaseAuthEasierDemoApp`](sample/FirebaseAuthEasierDemoApp) ディレクトリにデモアプリがあります。
+
+FirebaseAuthEasierの動作例や導入の参考としてご利用いただけます。
+
 ## FirebaseAuthViewのカスタマイズ
 `FirebaseAuthView`は、以下のイニシャライザ引数で柔軟にカスタマイズできます。
 
@@ -59,9 +67,11 @@ struct ContentView: View {
 public init(
     providers: [SignInProviderType]? = nil,
     labelType: SignInButtonLabelType = .signIn,
-    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
+    termsOfServiceURL: URL? = nil,
+    privacyPolicyURL: URL? = nil,
     onSignInStart: ((SignInProviderType) -> Void)? = nil,
-    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
+    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
+    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
 )
 ```
 
@@ -77,6 +87,18 @@ FirebaseAuthView(providers: [.apple]) // Appleサインインのみ
 ボタンのラベル種別（.signIn, .signUp, .continue）を指定します。
 ```swift
 FirebaseAuthView(labelType: .signUp)
+```
+
+#### termsOfServiceURL（デフォルト: nil）
+利用規約のURL。指定すると、サインイン画面下部にメッセージが表示されます。
+```swift
+FirebaseAuthView(termsOfServiceURL: URL(string: "https://example.com/terms"))
+```
+
+#### privacyPolicyURL（デフォルト: nil）
+プライバシーポリシーのURL。指定すると、サインイン画面下部にメッセージが表示されます。
+```swift
+FirebaseAuthView(privacyPolicyURL: URL(string: "https://example.com/privacy"))
 ```
 
 #### content（デフォルト: FirebaseAuthDefaultContentView）
@@ -113,19 +135,32 @@ FirebaseAuthView(didSignIn: { result in
 
 ### 組み合わせ例
 ```swift
-FirebaseAuthView(
-    providers: [.apple, .google],
-    labelType: .continue,
-    onSignInStart: { provider in
-        // ローディング表示やログ出力など
-    },
-    didSignIn: { result in
-        // サインイン完了時の処理
-    }
-) {
-    VStack {
-        Text("アプリへようこそ！")
-        // 任意のカスタムView
+struct ContentView: View {
+    var body: some View {
+        FirebaseAuthView(
+            providers: [.apple, .google],
+            labelType: .continue,
+            termsOfServiceURL: URL(string: "https://example.com/terms")!,
+            privacyPolicyURL: URL(string: "https://example.com/privacy")!,
+            onSignInStart: { provider in
+                print("Sign-in started with provider: \(provider)")
+            },
+            didSignIn: { result in
+                switch result {
+                case .success(let authResult):
+                    print("Sign-in successful")
+                case .failure(let error):
+                    print("Sign-in failed: \(error.localizedDescription)")
+                }
+            }
+        ) {
+            VStack {
+                Image(systemName: "person.circle")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("ようこそ！")
+            }
+        }
     }
 }
 ```
@@ -153,8 +188,8 @@ authService.signOut { result in /* ... */ }
 `SignInButton`はApple/Google用のサインインボタンUIを個別に利用でき、色・ラベル・角丸・枠線など細かくカスタマイズ可能です。
 
 ```swift
-import FirebaseAuthEasier
 import SwiftUI
+import FirebaseAuthEasier
 
 SignInButton(
     provider: .apple,

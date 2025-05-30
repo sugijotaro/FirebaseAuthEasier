@@ -16,13 +16,17 @@ public struct FirebaseAuthView<Content: View>: View {
     public init(
         providers: [SignInProviderType]? = nil,
         labelType: SignInButtonLabelType = .signIn,
-        @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() },
+        termsOfServiceURL: URL? = nil,
+        privacyPolicyURL: URL? = nil,
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
-        didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil
+        didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
+        @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
     ) {
         _viewModel = StateObject(wrappedValue: FirebaseAuthViewModel(
             providers: providers,
             labelType: labelType,
+            termsOfServiceURL: termsOfServiceURL,
+            privacyPolicyURL: privacyPolicyURL,
             onSignInStart: onSignInStart,
             didSignIn: { result in
                 didSignIn?(result)
@@ -33,14 +37,7 @@ public struct FirebaseAuthView<Content: View>: View {
     
     public var body: some View {
         FirebaseAuthViewComponent(
-            providers: viewModel.providers,
-            isSigningIn: viewModel.isSigningIn,
-            labelType: viewModel.labelType,
-            onSignInStart: viewModel.onSignInStart,
-            handleSignIn: { provider in
-                viewModel.handleSignIn(provider: provider)
-            },
-            signInResult: signInResult,
+            viewModel: viewModel,
             content: content
         )
         .onChange(of: viewModel.isSigningIn) { isSigningIn in

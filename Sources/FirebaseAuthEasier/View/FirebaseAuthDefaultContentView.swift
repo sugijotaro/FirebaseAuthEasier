@@ -26,10 +26,13 @@ public struct FirebaseAuthDefaultContentView: View {
                 Text(appName)
                     .font(.largeTitle)
                     .bold()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
             }
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 32)
+        .padding(.horizontal)
     }
 }
 
