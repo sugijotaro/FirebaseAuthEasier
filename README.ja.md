@@ -54,6 +54,12 @@ struct ContentView: View {
 }
 ```
 
+## デモアプリ
+
+[`sample/FirebaseAuthEasierDemoApp`](sample/FirebaseAuthEasierDemoApp) ディレクトリにデモアプリがあります。
+
+FirebaseAuthEasierの動作例や導入の参考としてご利用いただけます。
+
 ## FirebaseAuthViewのカスタマイズ
 `FirebaseAuthView`は、以下のイニシャライザ引数で柔軟にカスタマイズできます。
 

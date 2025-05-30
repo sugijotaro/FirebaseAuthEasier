@@ -56,6 +56,12 @@ struct ContentView: View {
 }
 ```
 
+## Demo App
+
+A demo app is available in the [`sample/FirebaseAuthEasierDemoApp`](sample/FirebaseAuthEasierDemoApp) directory.
+
+You can use this app to see FirebaseAuthEasier in action and as a reference for integration.
+
 ## FirebaseAuthView Customization
 `FirebaseAuthView` can be flexibly customized with the following initializer parameters:
 
