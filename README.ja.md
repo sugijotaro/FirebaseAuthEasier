@@ -40,6 +40,8 @@ Xcodeの場合：
 4. Xcodeのプロジェクト設定で「Sign in with Apple」のCapabilityを追加
 5. Google認証を利用する場合は、Google Cloud ConsoleでOAuthクライアントIDを取得し、Firebaseプロジェクトに設定
 
+より詳しいセットアップ手順は[こちらの記事](https://qiita.com/sugijotaro/items/35daf9f6eba4d88c7bd2)をご覧ください
+
 ## 基本的な使い方
 ```swift
 import SwiftUI

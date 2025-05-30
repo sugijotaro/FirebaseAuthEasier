@@ -1,5 +1,7 @@
 # FirebaseAuthEasier
 
+[日本語READMEはこちら](./README.ja.md)
+
 [![Swift Package Manager Compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2015.0%2B-blue.svg)](https://developer.apple.com/ios/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -39,6 +41,8 @@ In Xcode:
 3. **Enable "Sign in with Apple" and "Sign in with Google" in Firebase Console**
 4. **Add "Sign in with Apple" capability in Xcode project settings**
 5. For Google authentication, obtain OAuth client ID from Google Cloud Console and configure it in your Firebase project
+
+For more detailed setup instructions, see [this article (Japanese only)](https://qiita.com/sugijotaro/items/35daf9f6eba4d88c7bd2)
 
 ## Basic Usage
 ```swift
