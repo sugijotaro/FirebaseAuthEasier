@@ -7,6 +7,8 @@
 
 FirebaseAuthEasierは、Firebase Authentication（Apple/Googleサインイン）を**SwiftUIアプリに**簡単に組み込むためのSwiftパッケージです。
 
+<img width="493" alt="image" src="https://github.com/user-attachments/assets/1b9c8cc9-b199-416c-b507-9b562fdbbdb4" />
+
 ## 特徴
 - Apple・GoogleサインインのUI/ロジックを一括提供
 - シンプルなAPIとカスタマイズ可能なUIコンポーネント
