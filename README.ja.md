@@ -5,12 +5,12 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Swift](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
 
-FirebaseAuthEasierは、Firebase Authentication（Apple/Googleサインイン）を**SwiftUIアプリに**簡単に組み込むためのSwiftパッケージです。
+FirebaseAuthEasierは、Firebase Authentication（Apple/Googleサインイン/匿名認証）を**SwiftUIアプリに**簡単に組み込むためのSwiftパッケージです。
 
 <img width="493" alt="image" src="https://github.com/user-attachments/assets/1b9c8cc9-b199-416c-b507-9b562fdbbdb4" />
 
 ## 特徴
-- Apple・GoogleサインインのUI/ロジックを一括提供
+- Apple・Google・匿名認証のサインインUI/ロジックを一括提供
 - シンプルなAPIとカスタマイズ可能なUIコンポーネント
 - Firebase/GoogleSignIn公式SDKに依存
 - iOS 15以降対応
@@ -38,7 +38,7 @@ Xcodeの場合：
 ## 初期セットアップ
 1. [Firebase公式ドキュメント](https://firebase.google.com/docs/ios/setup)に従い、GoogleService-Info.plistを追加
 2. `AppDelegate`または`@main`の`App`でFirebaseを初期化
-3. Firebase Consoleで「Sign in with Apple」「Sign in with Google」を有効化
+3. Firebase Consoleで「Sign in with Apple」「Sign in with Google」「匿名認証」を有効化
 4. Xcodeのプロジェクト設定で「Sign in with Apple」のCapabilityを追加
 5. Google認証を利用する場合は、Google Cloud ConsoleでOAuthクライアントIDを取得し、Firebaseプロジェクトに設定
 
@@ -83,6 +83,7 @@ public init(
 表示するサインインプロバイダーを指定します。
 ```swift
 FirebaseAuthView(providers: [.apple]) // Appleサインインのみ
+FirebaseAuthView(providers: [.apple, .google, .anonymous]) // 匿名認証を含む全てのプロバイダー
 ```
 
 #### labelType（デフォルト: .signIn）
@@ -140,7 +141,7 @@ FirebaseAuthView(didSignIn: { result in
 struct ContentView: View {
     var body: some View {
         FirebaseAuthView(
-            providers: [.apple, .google],
+            providers: [.apple, .google, .anonymous],
             labelType: .continue,
             termsOfServiceURL: URL(string: "https://example.com/terms")!,
             privacyPolicyURL: URL(string: "https://example.com/privacy")!,
@@ -150,7 +151,11 @@ struct ContentView: View {
             didSignIn: { result in
                 switch result {
                 case .success(let authResult):
-                    print("Sign-in successful")
+                    if authResult.user.isAnonymous {
+                        print("匿名サインイン成功")
+                    } else {
+                        print("サインイン成功")
+                    }
                 case .failure(let error):
                     print("Sign-in failed: \(error.localizedDescription)")
                 }

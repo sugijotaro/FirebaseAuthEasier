@@ -12,7 +12,7 @@ FirebaseAuthEasier is a Swift package that makes it easy to integrate Firebase A
 <img width="493" alt="image" src="https://github.com/user-attachments/assets/1b9c8cc9-b199-416c-b507-9b562fdbbdb4" />
 
 ## Features
-- Provides Apple & Google sign-in UI/logic in one package
+- Provides Apple, Google, and Anonymous sign-in UI/logic in one package
 - Simple API with customizable UI components
 - Built on top of official Firebase/GoogleSignIn SDKs
 - Supports iOS 15 and later
@@ -40,7 +40,7 @@ In Xcode:
 ## Initial Setup
 1. Follow the [Firebase official documentation](https://firebase.google.com/docs/ios/setup) to add GoogleService-Info.plist
 2. Initialize Firebase in your `AppDelegate` or `@main` App
-3. **Enable "Sign in with Apple" and "Sign in with Google" in Firebase Console**
+3. **Enable "Sign in with Apple", "Sign in with Google", and "Anonymous" in Firebase Console**
 4. **Add "Sign in with Apple" capability in Xcode project settings**
 5. For Google authentication, obtain OAuth client ID from Google Cloud Console and configure it in your Firebase project
 
@@ -85,6 +85,7 @@ public init(
 Specify which sign-in providers to display.
 ```swift
 FirebaseAuthView(providers: [.apple]) // Apple sign-in only
+FirebaseAuthView(providers: [.apple, .google, .anonymous]) // All providers including anonymous
 ```
 
 #### labelType (Default: .signIn)
@@ -142,7 +143,7 @@ FirebaseAuthView(didSignIn: { result in
 struct ContentView: View {
     var body: some View {
         FirebaseAuthView(
-            providers: [.apple, .google],
+            providers: [.apple, .google, .anonymous],
             labelType: .continue,
             termsOfServiceURL: URL(string: "https://example.com/terms")!,
             privacyPolicyURL: URL(string: "https://example.com/privacy")!,
@@ -152,7 +153,11 @@ struct ContentView: View {
             didSignIn: { result in
                 switch result {
                 case .success(let authResult):
-                    print("Sign-in successful")
+                    if authResult.user.isAnonymous {
+                        print("Anonymous sign-in successful")
+                    } else {
+                        print("Sign-in successful")
+                    }
                 case .failure(let error):
                     print("Sign-in failed: \(error.localizedDescription)")
                 }
