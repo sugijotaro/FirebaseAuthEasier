@@ -75,15 +75,28 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
     private var signInButtonsView: some View {
         VStack(spacing: 8) {
             ForEach(viewModel.providers, id: \.self) { provider in
-                let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
-                SignInButton(
-                    provider: provider,
-                    buttonStyle: buttonStyle,
-                    labelType: viewModel.labelType,
-                    hasBorder: hasBorder,
-                    action: { viewModel.handleSignIn(provider: provider) }
-                )
-                .frame(height: 52)
+                if provider == .anonymous {
+                    Button(action: { viewModel.handleSignIn(provider: provider) }) {
+                        Text("Continue as Guest", bundle: Bundle.module, comment: "Button label for anonymous sign-in")
+                            .font(.system(size: 16, weight: .semibold))
+                            .lineLimit(1)
+                            .foregroundColor(.primary)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
+                    .frame(height: 52)
+                    .background(colorScheme == .dark ? Color(white: 0.15) : Color(white: 0.95))
+                    .cornerRadius(6)
+                } else {
+                    let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
+                    SignInButton(
+                        provider: provider,
+                        buttonStyle: buttonStyle,
+                        labelType: viewModel.labelType,
+                        hasBorder: hasBorder,
+                        action: { viewModel.handleSignIn(provider: provider) }
+                    )
+                    .frame(height: 52)
+                }
             }
         }
     }
@@ -94,6 +107,8 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
             return colorScheme == .dark ? (.white, false) : (.black, false)
         case .google:
             return colorScheme == .dark ? (.black, true) : (.white, true)
+        case .anonymous:
+            fatalError("This method should not be called for the anonymous provider.")
         }
     }
     
@@ -143,7 +158,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
 
 #Preview {
     let viewModel = FirebaseAuthViewModel(
-        providers: [.apple, .google],
+        providers: [.apple, .google, .anonymous],
         labelType: .signIn,
         termsOfServiceURL: URL(string: "https://example.com/terms"),
         privacyPolicyURL: URL(string: "https://example.com/privacy")

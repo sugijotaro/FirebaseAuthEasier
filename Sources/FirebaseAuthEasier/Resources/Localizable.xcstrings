@@ -412,6 +412,23 @@
         }
       }
     },
+    "Continue as Guest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue as Guest"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゲストとして続ける"
+          }
+        }
+      }
+    },
     "Continue with Apple" : {
       "extractionState" : "manual",
       "localizations" : {

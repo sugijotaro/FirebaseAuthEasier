@@ -10,6 +10,7 @@ import SwiftUI
 public enum SignInProviderType {
     case apple
     case google
+    case anonymous
 }
 
 public enum SignInButtonStyle {
@@ -141,6 +142,8 @@ public struct SignInButton: View {
             case .google:
                 Image("ic_google", bundle: Bundle.module)
                     .resizable()
+            case .anonymous:
+                fatalError("SignInButton is not designed for anonymous sign-in. Please use a standard Button in your view component.")
             }
         }
     }
@@ -192,6 +195,8 @@ public struct SignInButton: View {
             case .continue:
                 return NSLocalizedString("Continue with Google", bundle: Bundle.module, comment: "")
             }
+        case .anonymous:
+            fatalError("SignInButton is not designed for anonymous sign-in. Please use a standard Button in your view component.")
         }
     }
     

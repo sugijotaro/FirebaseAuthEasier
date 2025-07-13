@@ -68,6 +68,15 @@ public final class FirebaseAuthViewModel: ObservableObject {
                     self.didSignIn?(result)
                 }
             }
+        case .anonymous:
+            authService.signInAnonymously { [weak self] result in
+                guard let self = self else { return }
+                Task { @MainActor in
+                    self.isSigningIn = false
+                    self.lastSignInResult = result
+                    self.didSignIn?(result)
+                }
+            }
         }
     }
     

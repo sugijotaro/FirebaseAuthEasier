@@ -11,7 +11,7 @@ import FirebaseAuthEasier
 struct CustomizedAuthView: View {
     var body: some View {
         FirebaseAuthView(
-            providers: [.google, .apple],
+            providers: [.google, .apple, .anonymous],
             labelType: .signUp,
             termsOfServiceURL: URL(string: "https://example.com/terms")!,
             privacyPolicyURL: URL(string: "https://example.com/privacy")!,
