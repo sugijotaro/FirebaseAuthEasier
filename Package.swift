@@ -15,8 +15,8 @@ let package = Package(
             targets: ["FirebaseAuthEasier"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "11.13.0"),
-        .package(url: "https://github.com/google/GoogleSignIn-iOS", from: "8.0.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", "11.13.0" ..< "13.0.0"),
+        .package(url: "https://github.com/google/GoogleSignIn-iOS", "8.0.0" ..< "10.0.0"),
     ],
     targets: [
         .target(
