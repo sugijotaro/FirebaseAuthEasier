@@ -32,12 +32,10 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate {
         Self.startAppleAuth(flow: .link(completion), delegate: self)
     }
     
-    public func linkWithApple(nonce: String, idTokenString: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
-        let credential = OAuthProvider.credential(
-            providerID: .apple,
-            idToken: idTokenString,
-            rawNonce: nonce
-        )
+    public func linkWithApple(nonce: String, idTokenString: String, fullName: PersonNameComponents?, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
+        let credential = OAuthProvider.appleCredential(withIDToken: idTokenString,
+                                                        rawNonce: nonce,
+                                                        fullName: fullName)
         linkCurrentUserWithCredential(credential, completion: completion)
     }
     
@@ -70,15 +68,13 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate {
         }
         switch state.flow {
         case .signIn(let completion):
-            let credential = OAuthProvider.credential(
-                providerID: .apple,
-                idToken: idTokenString,
-                rawNonce: state.nonce
-            )
+            let credential = OAuthProvider.appleCredential(withIDToken: idTokenString,
+                                                            rawNonce: state.nonce,
+                                                            fullName: appleIDCredential.fullName)
             signInWithCredential(credential, completion: completion)
             Self.appleAuthState = nil
         case .link(let completion):
-            linkWithApple(nonce: state.nonce, idTokenString: idTokenString, completion: completion)
+            linkWithApple(nonce: state.nonce, idTokenString: idTokenString, fullName: appleIDCredential.fullName, completion: completion)
             Self.appleAuthState = nil
         }
     }
