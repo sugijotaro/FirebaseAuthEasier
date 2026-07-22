@@ -1,229 +1,219 @@
 # FirebaseAuthEasier
 
-[日本語READMEはこちら](./README.ja.md)
+[日本語 README](./README.ja.md)
 
 [![Swift Package Manager Compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2015.0%2B-blue.svg)](https://developer.apple.com/ios/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Swift](https://img.shields.io/badge/Swift-6.0-orange.svg)](https://swift.org)
 
-FirebaseAuthEasier is a Swift package that makes it easy to integrate Firebase Authentication (Apple/Google sign-in) into **SwiftUI apps**.
-
-<img width="493" alt="image" src="https://github.com/user-attachments/assets/1b9c8cc9-b199-416c-b507-9b562fdbbdb4" />
+FirebaseAuthEasier adds Apple, Google, and anonymous Firebase Authentication flows to SwiftUI apps. It includes customizable sign-in UI, an observable authentication session, and callback plus async/await service APIs.
 
 ## Features
-- Provides Apple, Google, and Anonymous sign-in UI/logic in one package
-- Simple API with customizable UI components
-- Built on top of official Firebase/GoogleSignIn SDKs
-- Supports iOS 15 and later
-- Flexible authentication operation APIs via FirebaseAuthService
-- SignInButton components can be used individually with flexible UI customization
 
-## Supported Platforms
+- `FirebaseAuthSession` tracks the current user, initial auth resolution, linked provider IDs, and sign-out progress/errors.
+- `FirebaseAuthService` is the single gateway for authentication operations.
+- Async/await APIs cover anonymous, Apple, Google, credential, link, sign-out, and account-deletion operations.
+- Existing callback APIs remain available.
+- Apple flow state is instance-owned and main-actor isolated; overlapping flows are rejected with an error.
+- Apple presentation anchors and Google presenting view controllers can be injected for multi-window SwiftUI and iPad apps.
+- `Auth` can be injected for named Firebase apps, tests, and deterministic initialization.
+- iOS 15 remains supported. Newer SwiftUI APIs are used behind availability checks where appropriate.
+
+## Requirements
+
 - iOS 15.0+
-
-## Dependencies
-- [firebase-ios-sdk](https://github.com/firebase/firebase-ios-sdk) (v11.13.0+)
-- [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) (v8.0.0+)
+- Swift 6.0+
+- firebase-ios-sdk 11.13.0 up to, but not including, 13.0.0
+- GoogleSignIn-iOS 8.0.0 up to, but not including, 10.0.0
 
 ## Installation
-Add the package using Swift Package Manager.
 
-```
+Add the package with Swift Package Manager:
+
+```swift
 .package(url: "https://github.com/sugijotaro/FirebaseAuthEasier.git", from: "1.0.0")
 ```
 
-In Xcode:
-1. Go to "File" → "Add Package Dependencies..." and enter the URL above
-2. Select "FirebaseAuthEasier" to add
+## Firebase setup
 
-## Initial Setup
-1. Follow the [Firebase official documentation](https://firebase.google.com/docs/ios/setup) to add GoogleService-Info.plist
-2. Initialize Firebase in your `AppDelegate` or `@main` App
-3. **Enable "Sign in with Apple", "Sign in with Google", and "Anonymous" in Firebase Console**
-4. **Add "Sign in with Apple" capability in Xcode project settings**
-5. For Google authentication, obtain OAuth client ID from Google Cloud Console and configure it in your Firebase project
+1. Add `GoogleService-Info.plist` by following the [Firebase Apple platform setup guide](https://firebase.google.com/docs/ios/setup).
+2. Call `FirebaseApp.configure()` before creating `FirebaseAuthService`, `FirebaseAuthSession`, or `FirebaseAuthView`.
+3. Enable the Apple, Google, and/or Anonymous providers in Firebase Console.
+4. Add the Sign in with Apple capability when using Apple authentication.
+5. Configure the Google OAuth client when using Google authentication.
 
-For more detailed setup instructions, see [this article (Japanese only)](https://qiita.com/sugijotaro/items/35daf9f6eba4d88c7bd2)
+The zero-argument `FirebaseAuthService()` initializer requires an already configured default Firebase app and stops with a clear precondition message otherwise. For recoverable setup validation, use `try FirebaseAuthService.configured()`. For named apps or dependency injection, use `FirebaseAuthService(auth:)`.
 
-## Basic Usage
 ```swift
-import SwiftUI
+import FirebaseAuth
 import FirebaseAuthEasier
 
-struct ContentView: View {
+let service = FirebaseAuthService(auth: Auth.auth())
+let session = FirebaseAuthSession(service: service)
+```
+
+## Observable authentication session
+
+Use one service and one session as your app's authentication source of truth. `isAuthStateResolved` prevents signed-out UI from flashing before Firebase delivers its initial listener callback.
+
+```swift
+import FirebaseAuth
+import FirebaseAuthEasier
+import SwiftUI
+
+struct AuthGate: View {
+    @StateObject private var session: FirebaseAuthSession
+    private let authService: FirebaseAuthService
+
+    init(auth: Auth = Auth.auth()) {
+        let service = FirebaseAuthService(auth: auth)
+        authService = service
+        _session = StateObject(wrappedValue: FirebaseAuthSession(service: service))
+    }
+
     var body: some View {
-        FirebaseAuthView()
-    }
-}
-```
-
-## Demo App
-
-A demo app is available in the [`sample/FirebaseAuthEasierDemoApp`](sample/FirebaseAuthEasierDemoApp) directory.
-
-You can use this app to see FirebaseAuthEasier in action and as a reference for integration.
-
-## FirebaseAuthView Customization
-`FirebaseAuthView` can be flexibly customized with the following initializer parameters:
-
-```swift
-public init(
-    providers: [SignInProviderType]? = nil,
-    labelType: SignInButtonLabelType = .signIn,
-    termsOfServiceURL: URL? = nil,
-    privacyPolicyURL: URL? = nil,
-    onSignInStart: ((SignInProviderType) -> Void)? = nil,
-    didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
-    @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
-)
-```
-
-### Parameter Details and Customization Examples
-
-#### providers (Default: [.apple, .google])
-Specify which sign-in providers to display.
-```swift
-FirebaseAuthView(providers: [.apple]) // Apple sign-in only
-FirebaseAuthView(providers: [.apple, .google, .anonymous]) // All providers including anonymous
-```
-
-#### labelType (Default: .signIn)
-Specify the button label type (.signIn, .signUp, .continue).
-```swift
-FirebaseAuthView(labelType: .signUp)
-```
-
-#### termsOfServiceURL (Default: nil)
-URL for Terms of Service. If provided, a legal message will be displayed at the bottom of the sign-in screen.
-```swift
-FirebaseAuthView(termsOfServiceURL: URL(string: "https://example.com/terms"))
-```
-
-#### privacyPolicyURL (Default: nil)
-URL for Privacy Policy. If provided, a legal message will be displayed at the bottom of the sign-in screen.
-```swift
-FirebaseAuthView(privacyPolicyURL: URL(string: "https://example.com/privacy"))
-```
-
-#### content (Default: FirebaseAuthDefaultContentView)
-Customize the view displayed at the top of the sign-in screen.
-```swift
-FirebaseAuthView {
-    VStack {
-        Text("Welcome!")
-        Image(systemName: "person.circle")
-    }
-}
-```
-
-#### onSignInStart (Default: nil)
-Closure called when sign-in process starts. Receives the provider type.
-```swift
-FirebaseAuthView(onSignInStart: { provider in
-    print("Sign-in started: \(provider)")
-})
-```
-
-#### didSignIn (Default: nil)
-Closure called when sign-in completes. Receives success/failure result.
-```swift
-FirebaseAuthView(didSignIn: { result in
-    switch result {
-    case .success(let authData):
-        // Handle successful sign-in
-    case .failure(let error):
-        // Handle error
-    }
-})
-```
-
-### Combined Example
-```swift
-struct ContentView: View {
-    var body: some View {
-        FirebaseAuthView(
-            providers: [.apple, .google, .anonymous],
-            labelType: .continue,
-            termsOfServiceURL: URL(string: "https://example.com/terms")!,
-            privacyPolicyURL: URL(string: "https://example.com/privacy")!,
-            onSignInStart: { provider in
-                print("Sign-in started with provider: \(provider)")
-            },
-            didSignIn: { result in
-                switch result {
-                case .success(let authResult):
-                    if authResult.user.isAnonymous {
-                        print("Anonymous sign-in successful")
-                    } else {
-                        print("Sign-in successful")
+        Group {
+            if !session.isAuthStateResolved {
+                ProgressView("Loading…")
+            } else if session.isSignedIn {
+                VStack {
+                    Text("Signed in")
+                    Text(session.providerIDs.map(\.rawValue).joined(separator: ", "))
+                    Button("Sign out") {
+                        Task {
+                            do {
+                                try await session.signOut()
+                            } catch {
+                                // Present the error from session.signOutState.
+                            }
+                        }
                     }
-                case .failure(let error):
-                    print("Sign-in failed: \(error.localizedDescription)")
+                    .disabled(session.isSigningOut)
                 }
-            }
-        ) {
-            VStack {
-                Image(systemName: "person.circle")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Welcome!")
+            } else {
+                FirebaseAuthView(authService: authService)
             }
         }
     }
 }
 ```
 
-## Flexible Authentication Operations with FirebaseAuthService
-`FirebaseAuthService` provides convenient APIs for detailed authentication operations such as sign-in, sign-out, anonymous authentication, re-authentication, and account deletion.
+Useful session state:
+
+- `currentUser`, `isSignedIn`, and `isAnonymous`
+- `isAuthStateResolved`
+- `providerIDs` and `usesProvider(_:)`
+- `signOutState` and `isSigningOut`
+
+The session unregisters its Firebase listener when released. State mutations are main-actor isolated for SwiftUI and strict-concurrency safety.
+
+## FirebaseAuthView
+
+The simplest sign-in screen remains:
 
 ```swift
-import FirebaseAuthEasier
-
-let authService = FirebaseAuthService()
-
-// Anonymous sign-in
-authService.signInAnonymously { result in /* ... */ }
-
-// Sign-out
-authService.signOut { result in /* ... */ }
-
-// Link authentication providers
-// Account deletion
-// ...and more
+FirebaseAuthView()
 ```
 
-## Individual Use and Customization of SignInButton Component
-`SignInButton` provides Apple/Google sign-in button UI that can be used individually, with fine-grained customization for colors, labels, corner radius, borders, and more.
+The existing customization API remains source compatible, with optional service and presentation-context injection added:
 
 ```swift
-import SwiftUI
-import FirebaseAuthEasier
+FirebaseAuthView(
+    providers: [.apple, .google, .anonymous],
+    labelType: .continue,
+    termsOfServiceURL: URL(string: "https://example.com/terms"),
+    privacyPolicyURL: URL(string: "https://example.com/privacy"),
+    authService: authService,
+    presentingViewControllerProvider: { mySceneRootViewController },
+    onSignInStart: { provider in
+        print("Starting \(provider)")
+    },
+    didSignIn: { result in
+        print(result)
+    }
+) {
+    VStack {
+        Image(systemName: "person.circle")
+        Text("Welcome")
+    }
+}
+```
 
+Defaults are Apple and Google providers, the `.signIn` label, no legal links, and `FirebaseAuthDefaultContentView`.
+
+## Async/await service APIs
+
+`FirebaseAuthService` is `@MainActor` because Apple/Google authentication and presentation are UI-bound.
+
+```swift
+let service = FirebaseAuthService()
+
+let anonymousResult = try await service.signInAnonymously()
+let appleResult = try await service.startSignInWithApple()
+let googleResult = try await service.startSignInWithGoogle(
+    presentingViewController: viewController
+)
+let credentialResult = try await service.signInWithCredential(credential)
+let linkedResult = try await service.linkCurrentUserWithCredential(credential)
+try await service.signOut()
+try await service.deleteAccount(presentingViewController: viewController)
+```
+
+Apple and Google linking also have async APIs:
+
+```swift
+let appleLink = try await service.startLinkWithApple()
+let googleLink = try await service.startLinkWithGoogle(
+    presentingViewController: viewController
+)
+```
+
+The callback forms, such as `signOut(completion:)`, `signInAnonymously(completion:)`, and the provider flow completion handlers, remain available for existing clients.
+
+## Multi-window Apple presentation
+
+By default, the service searches foreground-active scenes and uses the key or visible window. For deterministic multi-window behavior, inject the window owned by the relevant scene:
+
+```swift
+let service = FirebaseAuthService(
+    auth: Auth.auth(),
+    applePresentationAnchorProvider: { sceneWindow }
+)
+```
+
+You can replace it later with `setApplePresentationAnchorProvider(_:)`. If no anchor is available, Apple authentication completes with `FirebaseAuthEasierError.missingApplePresentationAnchor` instead of silently failing. Starting a second Apple flow on the same service completes with `authenticationFlowAlreadyInProgress`.
+
+## Using SignInButton independently
+
+```swift
 SignInButton(
     provider: .apple,
     buttonStyle: .black,
     labelStyle: .titleAndIcon,
     labelType: .signIn,
     cornerStyle: .radius(12),
-    hasBorder: true
-) {
-    // Button tap handling
-}
+    hasBorder: true,
+    action: startAppleSignIn
+)
 ```
 
-## Contributing
-We welcome contributions to this project!
+## Migration notes
 
-- Report bugs or request features via [Issues](https://github.com/sugijotaro/FirebaseAuthEasier/issues)
-- Pull requests are very welcome
-- Feel free to reach out with improvement suggestions or feedback
+- Existing callback APIs and the original `FirebaseAuthView` arguments are retained.
+- Prefer a shared `FirebaseAuthSession` over reimplementing an auth-state listener in each app.
+- Prefer async/await APIs in new code.
+- `FirebaseAuthService`, `FirebaseAuthSession`, and `FirebaseAuthViewModel` are main-actor isolated. Code that previously called the service from a background context must switch to the main actor, for example with `Task { @MainActor in ... }`.
+- Configure Firebase before using zero-argument initializers, or inject an `Auth` instance.
+- Apple and Google overlapping interactive flows are now explicitly rejected rather than overwriting shared completion state.
+- `FirebaseAuthView` no longer keeps a duplicate unused sign-in result; `FirebaseAuthViewModel.lastSignInResult` remains the displayed result and `didSignIn` remains the public completion hook.
 
-## Important Notes
-- Authentication will fail if Firebase/GoogleSignIn setup is not configured correctly
-- Google authentication requires configuration in Google Cloud Console
-- Apple sign-in only works on physical devices
-- When using Apple sign-in, make sure to enable it in Firebase Console and add the capability in Xcode
+## Notes
+
+- Provider configuration, URL schemes, entitlements, and valid Firebase project credentials are still required.
+- Apple authorization UI should be verified on a signed-in device as well as a simulator; automated tests cannot complete the system account-consent flow.
+- `swift test` on the macOS host is not the supported path for this iOS-only package. Run the package scheme with an iOS Simulator destination in Xcode or `xcodebuild`.
 
 ## License
+
 MIT © Jotaro Sugiyama
