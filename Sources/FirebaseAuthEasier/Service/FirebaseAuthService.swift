@@ -242,42 +242,36 @@ public final class FirebaseAuthService: NSObject {
     ) {
         let providerIDs = Self.providerIDs(for: user)
         if providerIDs.contains(.google) {
-            startSignInWithGoogle(presentingViewController: presentingViewController) { [weak self] result in
-                self?.finishReauthentication(from: result, completion: completion)
+            credentialWithGoogle(presentingViewController: presentingViewController) { [weak self] result in
+                self?.finishReauthentication(for: user, from: result, completion: completion)
             }
         } else if providerIDs.contains(.apple) {
-            startSignInWithApple { [weak self] result in
-                self?.finishReauthentication(from: result, completion: completion)
+            credentialWithApple { [weak self] result in
+                self?.finishReauthentication(for: user, from: result, completion: completion)
             }
         } else {
-            completion(.failure(FirebaseAuthEasierError.missingCredential))
+            completion(.failure(FirebaseAuthEasierError.noReauthenticationProvider))
         }
     }
 
     private func finishReauthentication(
-        from result: Result<AuthDataResult, Error>,
+        for user: FirebaseAuth.User,
+        from result: Result<AuthCredential, Error>,
         completion: @MainActor @escaping (Result<Void, Error>) -> Void
     ) {
         switch result {
-        case .success(let authResult):
-            guard let credential = authResult.credential else {
-                completion(.failure(FirebaseAuthEasierError.missingCredential))
-                return
-            }
-            reauthenticate(with: credential, completion: completion)
+        case .success(let credential):
+            reauthenticate(user: user, with: credential, completion: completion)
         case .failure(let error):
             completion(.failure(error))
         }
     }
 
     private func reauthenticate(
+        user: FirebaseAuth.User,
         with credential: AuthCredential,
         completion: @MainActor @escaping (Result<Void, Error>) -> Void
     ) {
-        guard let user = auth.currentUser else {
-            completion(.failure(FirebaseAuthEasierError.currentUserNotFound))
-            return
-        }
         user.reauthenticate(with: credential) { _, error in
             if let error {
                 completion(.failure(error))

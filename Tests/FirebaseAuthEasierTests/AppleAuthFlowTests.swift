@@ -7,6 +7,23 @@ import XCTest
 
 @MainActor
 final class AppleAuthFlowTests: XCTestCase {
+    func testCredentialFlowReturnsCredentialWithoutRunningFirebaseSignIn() {
+        let credential = EmailAuthProvider.credential(
+            withEmail: "person@example.com",
+            password: "not-a-real-password"
+        )
+        var receivedCredential: AuthCredential?
+        let flow = AppleAuthFlow.credential { result in
+            if case .success(let credential) = result {
+                receivedCredential = credential
+            }
+        }
+
+        flow.completeCredential(with: credential)
+
+        XCTAssertTrue(receivedCredential === credential)
+    }
+
     func testOverlappingFlowIsRejectedWithoutReplacingActiveFlow() {
         let service = makeService()
         let activeController = makeController()

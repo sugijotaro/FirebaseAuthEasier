@@ -9,6 +9,7 @@ public enum FirebaseAuthEasierError: LocalizedError, Equatable, Sendable {
     case firebaseNotConfigured
     case currentUserNotFound
     case missingCredential
+    case noReauthenticationProvider
     case missingGoogleClientID
     case invalidGoogleCredential
     case invalidAppleCredential
@@ -27,6 +28,8 @@ public enum FirebaseAuthEasierError: LocalizedError, Equatable, Sendable {
             "No Firebase user is currently signed in."
         case .missingCredential:
             "The authentication provider did not return a credential."
+        case .noReauthenticationProvider:
+            "The current user has no supported provider for interactive reauthentication."
         case .missingGoogleClientID:
             "The configured Firebase app does not contain a Google client ID."
         case .invalidGoogleCredential:

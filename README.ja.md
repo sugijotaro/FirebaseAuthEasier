@@ -206,6 +206,7 @@ SignInButton(
 - `FirebaseAuthService`、`FirebaseAuthSession`、`FirebaseAuthViewModel` は MainActor 隔離です。バックグラウンドからサービスを呼んでいたコードは `Task { @MainActor in ... }` などで MainActor に移してください。
 - 引数なし initializer の前に Firebase を設定するか、`Auth` を注入してください。
 - Apple・Google の対話フロー重複時は、共有 completion を上書きせず明示的に失敗します。
+- 対話型の再認証では、Firebase の現在ユーザーを先に切り替えず credential だけを取得します。アカウント削除の再試行対象が新しく選んだ別アカウントへ変わることを防ぎます。
 - `FirebaseAuthView` 内の未使用だった重複 `signInResult` は削除しました。表示結果は引き続き `FirebaseAuthViewModel.lastSignInResult`、公開完了通知は `didSignIn` です。
 
 ## 注意事項

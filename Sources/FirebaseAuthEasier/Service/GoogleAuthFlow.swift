@@ -13,11 +13,32 @@ import UIKit
 enum GoogleAuthFlow {
     case signIn((Result<AuthDataResult, Error>) -> Void)
     case link((Result<AuthDataResult, Error>) -> Void)
+    case credential((Result<AuthCredential, Error>) -> Void)
 
-    func complete(with result: Result<AuthDataResult, Error>) {
+    func fail(with error: Error) {
+        switch self {
+        case .signIn(let completion), .link(let completion):
+            completion(.failure(error))
+        case .credential(let completion):
+            completion(.failure(error))
+        }
+    }
+
+    func completeAuthOperation(with result: Result<AuthDataResult, Error>) {
         switch self {
         case .signIn(let completion), .link(let completion):
             completion(result)
+        case .credential(let completion):
+            completion(.failure(FirebaseAuthEasierError.unexpectedAuthorizationCallback))
+        }
+    }
+
+    func completeCredential(with credential: AuthCredential) {
+        switch self {
+        case .credential(let completion):
+            completion(.success(credential))
+        case .signIn(let completion), .link(let completion):
+            completion(.failure(FirebaseAuthEasierError.unexpectedAuthorizationCallback))
         }
     }
 }
@@ -79,16 +100,26 @@ extension FirebaseAuthService {
         return transfer.value
     }
 
+    func credentialWithGoogle(
+        presentingViewController: UIViewController,
+        completion: @MainActor @escaping (Result<AuthCredential, Error>) -> Void
+    ) {
+        startGoogleAuth(
+            flow: .credential(completion),
+            presentingViewController: presentingViewController
+        )
+    }
+
     private func startGoogleAuth(
         flow: GoogleAuthFlow,
         presentingViewController: UIViewController
     ) {
         guard googleAuthState == nil, GoogleAuthFlowCoordinator.activeService == nil else {
-            flow.complete(with: .failure(FirebaseAuthEasierError.authenticationFlowAlreadyInProgress))
+            flow.fail(with: FirebaseAuthEasierError.authenticationFlowAlreadyInProgress)
             return
         }
         guard let clientID = auth.app?.options.clientID else {
-            flow.complete(with: .failure(FirebaseAuthEasierError.missingGoogleClientID))
+            flow.fail(with: FirebaseAuthEasierError.missingGoogleClientID)
             return
         }
 
@@ -117,12 +148,12 @@ extension FirebaseAuthService {
         }
 
         if let error {
-            state.flow.complete(with: .failure(error))
+            state.flow.fail(with: error)
             return
         }
         guard let user = result?.user,
               let idToken = user.idToken?.tokenString else {
-            state.flow.complete(with: .failure(FirebaseAuthEasierError.invalidGoogleCredential))
+            state.flow.fail(with: FirebaseAuthEasierError.invalidGoogleCredential)
             return
         }
 
@@ -132,9 +163,14 @@ extension FirebaseAuthService {
         )
         switch state.flow {
         case .signIn:
-            signInWithCredential(credential, completion: state.flow.complete(with:))
+            signInWithCredential(credential, completion: state.flow.completeAuthOperation(with:))
         case .link:
-            linkCurrentUserWithCredential(credential, completion: state.flow.complete(with:))
+            linkCurrentUserWithCredential(
+                credential,
+                completion: state.flow.completeAuthOperation(with:)
+            )
+        case .credential:
+            state.flow.completeCredential(with: credential)
         }
     }
 }

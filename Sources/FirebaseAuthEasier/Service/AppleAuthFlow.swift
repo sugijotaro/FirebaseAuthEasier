@@ -20,11 +20,32 @@ private let appleAuthLogger = Logger(
 enum AppleAuthFlow {
     case signIn((Result<AuthDataResult, Error>) -> Void)
     case link((Result<AuthDataResult, Error>) -> Void)
+    case credential((Result<AuthCredential, Error>) -> Void)
 
-    func complete(with result: Result<AuthDataResult, Error>) {
+    func fail(with error: Error) {
+        switch self {
+        case .signIn(let completion), .link(let completion):
+            completion(.failure(error))
+        case .credential(let completion):
+            completion(.failure(error))
+        }
+    }
+
+    func completeAuthOperation(with result: Result<AuthDataResult, Error>) {
         switch self {
         case .signIn(let completion), .link(let completion):
             completion(result)
+        case .credential(let completion):
+            completion(.failure(FirebaseAuthEasierError.unexpectedAuthorizationCallback))
+        }
+    }
+
+    func completeCredential(with credential: AuthCredential) {
+        switch self {
+        case .credential(let completion):
+            completion(.success(credential))
+        case .signIn(let completion), .link(let completion):
+            completion(.failure(FirebaseAuthEasierError.unexpectedAuthorizationCallback))
         }
     }
 }
@@ -69,6 +90,12 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
         return transfer.value
     }
 
+    func credentialWithApple(
+        completion: @MainActor @escaping (Result<AuthCredential, Error>) -> Void
+    ) {
+        startAppleAuth(flow: .credential(completion))
+    }
+
     public func linkWithApple(
         nonce: String,
         idTokenString: String,
@@ -103,11 +130,11 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
 
     private func startAppleAuth(flow: AppleAuthFlow) {
         guard appleAuthState == nil else {
-            flow.complete(with: .failure(FirebaseAuthEasierError.authenticationFlowAlreadyInProgress))
+            flow.fail(with: FirebaseAuthEasierError.authenticationFlowAlreadyInProgress)
             return
         }
         guard let presentationAnchor = resolveApplePresentationAnchor() else {
-            flow.complete(with: .failure(FirebaseAuthEasierError.missingApplePresentationAnchor))
+            flow.fail(with: FirebaseAuthEasierError.missingApplePresentationAnchor)
             return
         }
 
@@ -115,7 +142,7 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
         do {
             nonce = try Self.randomNonceString()
         } catch {
-            flow.complete(with: .failure(error))
+            flow.fail(with: error)
             return
         }
 
@@ -145,7 +172,7 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
         guard let appleCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
               let token = appleCredential.identityToken,
               let tokenString = String(data: token, encoding: .utf8) else {
-            state.flow.complete(with: .failure(FirebaseAuthEasierError.invalidAppleCredential))
+            state.flow.fail(with: FirebaseAuthEasierError.invalidAppleCredential)
             return
         }
 
@@ -156,9 +183,14 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
         )
         switch state.flow {
         case .signIn:
-            signInWithCredential(credential, completion: state.flow.complete(with:))
+            signInWithCredential(credential, completion: state.flow.completeAuthOperation(with:))
         case .link:
-            linkCurrentUserWithCredential(credential, completion: state.flow.complete(with:))
+            linkCurrentUserWithCredential(
+                credential,
+                completion: state.flow.completeAuthOperation(with:)
+            )
+        case .credential:
+            state.flow.completeCredential(with: credential)
         }
     }
 
@@ -169,7 +201,7 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
         guard let state = takeAppleAuthState(for: controller) else {
             return
         }
-        state.flow.complete(with: .failure(error))
+        state.flow.fail(with: error)
     }
 
     public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
@@ -187,7 +219,7 @@ extension FirebaseAuthService: ASAuthorizationControllerDelegate,
         }
         appleAuthState = nil
         guard state.controller === controller else {
-            state.flow.complete(with: .failure(FirebaseAuthEasierError.unexpectedAuthorizationCallback))
+            state.flow.fail(with: FirebaseAuthEasierError.unexpectedAuthorizationCallback)
             return nil
         }
         return state

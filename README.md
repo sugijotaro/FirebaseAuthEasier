@@ -206,6 +206,7 @@ SignInButton(
 - `FirebaseAuthService`, `FirebaseAuthSession`, and `FirebaseAuthViewModel` are main-actor isolated. Code that previously called the service from a background context must switch to the main actor, for example with `Task { @MainActor in ... }`.
 - Configure Firebase before using zero-argument initializers, or inject an `Auth` instance.
 - Apple and Google overlapping interactive flows are now explicitly rejected rather than overwriting shared completion state.
+- Interactive reauthentication now obtains a provider credential without first changing Firebase's current user, so account deletion cannot accidentally retarget a newly selected account.
 - `FirebaseAuthView` no longer keeps a duplicate unused sign-in result; `FirebaseAuthViewModel.lastSignInResult` remains the displayed result and `didSignIn` remains the public completion hook.
 
 ## Notes
