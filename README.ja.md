@@ -32,7 +32,7 @@ FirebaseAuthEasier は、Apple・Google・匿名の Firebase Authentication を 
 Swift Package Manager で追加します。
 
 ```swift
-.package(url: "https://github.com/sugijotaro/FirebaseAuthEasier.git", from: "1.0.0")
+.package(url: "https://github.com/sugijotaro/FirebaseAuthEasier.git", from: "2.0.0")
 ```
 
 ## Firebase のセットアップ

@@ -32,7 +32,7 @@ FirebaseAuthEasier adds Apple, Google, and anonymous Firebase Authentication flo
 Add the package with Swift Package Manager:
 
 ```swift
-.package(url: "https://github.com/sugijotaro/FirebaseAuthEasier.git", from: "1.0.0")
+.package(url: "https://github.com/sugijotaro/FirebaseAuthEasier.git", from: "2.0.0")
 ```
 
 ## Firebase setup
