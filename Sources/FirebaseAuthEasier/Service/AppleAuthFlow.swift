@@ -5,105 +5,215 @@
 //  Created by Jotaro Sugiyama on 2025/05/25.
 //
 
-import Foundation
-import FirebaseAuth
 import AuthenticationServices
 import CryptoKit
+import FirebaseAuth
+import Foundation
+import OSLog
 
-extension FirebaseAuthService: ASAuthorizationControllerDelegate {
-    private enum AppleAuthFlow {
-        case signIn((Result<AuthDataResult, Error>) -> Void)
-        case link((Result<AuthDataResult, Error>) -> Void)
-    }
-    
-    private struct AppleAuthState {
-        var nonce: String
-        var flow: AppleAuthFlow
-    }
-    
-    nonisolated(unsafe) private static var appleAuthState: AppleAuthState?
-    
-    // MARK: - Public API
-    public func startSignInWithApple(completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
-        Self.startAppleAuth(flow: .signIn(completion), delegate: self)
-    }
-    
-    public func startLinkWithApple(completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
-        Self.startAppleAuth(flow: .link(completion), delegate: self)
-    }
-    
-    public func linkWithApple(nonce: String, idTokenString: String, fullName: PersonNameComponents?, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
-        let credential = OAuthProvider.appleCredential(withIDToken: idTokenString,
-                                                        rawNonce: nonce,
-                                                        fullName: fullName)
-        linkCurrentUserWithCredential(credential, completion: completion)
-    }
-    
-    // MARK: - Private Shared Logic
-    private static func startAppleAuth(flow: AppleAuthFlow, delegate: ASAuthorizationControllerDelegate) {
-        let nonce = randomNonceString()
-        appleAuthState = AppleAuthState(nonce: nonce, flow: flow)
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        request.nonce = sha256(nonce)
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = delegate
-        controller.performRequests()
-    }
-    
-    // MARK: - ASAuthorizationControllerDelegate
-    public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
-              let state = Self.appleAuthState else {
-            return
-        }
-        guard let appleIDToken = appleIDCredential.identityToken,
-              let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-            switch state.flow {
-            case .signIn(let completion), .link(let completion):
-                completion(.failure(NSError(domain: "FirebaseAuthService", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unable to fetch/serialize identity token"])))
-            }
-            Self.appleAuthState = nil
-            return
-        }
-        switch state.flow {
-        case .signIn(let completion):
-            let credential = OAuthProvider.appleCredential(withIDToken: idTokenString,
-                                                            rawNonce: state.nonce,
-                                                            fullName: appleIDCredential.fullName)
-            signInWithCredential(credential, completion: completion)
-            Self.appleAuthState = nil
-        case .link(let completion):
-            linkWithApple(nonce: state.nonce, idTokenString: idTokenString, fullName: appleIDCredential.fullName, completion: completion)
-            Self.appleAuthState = nil
+private let appleAuthLogger = Logger(
+    subsystem: "FirebaseAuthEasier",
+    category: "AppleAuthentication"
+)
+
+@MainActor
+enum AppleAuthFlow {
+    case signIn((Result<AuthDataResult, Error>) -> Void)
+    case link((Result<AuthDataResult, Error>) -> Void)
+
+    func complete(with result: Result<AuthDataResult, Error>) {
+        switch self {
+        case .signIn(let completion), .link(let completion):
+            completion(result)
         }
     }
-    
-    public func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        if let state = Self.appleAuthState {
-            switch state.flow {
-            case .signIn(let completion), .link(let completion):
+}
+
+@MainActor
+struct AppleAuthState {
+    let nonce: String
+    let flow: AppleAuthFlow
+    let controller: ASAuthorizationController
+    let presentationAnchor: ASPresentationAnchor
+}
+
+extension FirebaseAuthService: ASAuthorizationControllerDelegate,
+    ASAuthorizationControllerPresentationContextProviding {
+    public func startSignInWithApple(
+        completion: @MainActor @escaping (Result<AuthDataResult, Error>) -> Void
+    ) {
+        startAppleAuth(flow: .signIn(completion))
+    }
+
+    public func startSignInWithApple() async throws -> AuthDataResult {
+        let transfer: MainActorTransfer<AuthDataResult> = try await withCheckedThrowingContinuation(
+            isolation: MainActor.shared
+        ) { continuation in
+            startSignInWithApple { resumeMainActorContinuation(continuation, with: $0) }
+        }
+        return transfer.value
+    }
+
+    public func startLinkWithApple(
+        completion: @MainActor @escaping (Result<AuthDataResult, Error>) -> Void
+    ) {
+        startAppleAuth(flow: .link(completion))
+    }
+
+    public func startLinkWithApple() async throws -> AuthDataResult {
+        let transfer: MainActorTransfer<AuthDataResult> = try await withCheckedThrowingContinuation(
+            isolation: MainActor.shared
+        ) { continuation in
+            startLinkWithApple { resumeMainActorContinuation(continuation, with: $0) }
+        }
+        return transfer.value
+    }
+
+    public func linkWithApple(
+        nonce: String,
+        idTokenString: String,
+        fullName: PersonNameComponents?
+    ) async throws -> AuthDataResult {
+        let credential = OAuthProvider.appleCredential(
+            withIDToken: idTokenString,
+            rawNonce: nonce,
+            fullName: fullName
+        )
+        return try await linkCurrentUserWithCredential(credential)
+    }
+
+    public func linkWithApple(
+        nonce: String,
+        idTokenString: String,
+        fullName: PersonNameComponents?,
+        completion: @MainActor @escaping (Result<AuthDataResult, Error>) -> Void
+    ) {
+        Task { @MainActor in
+            do {
+                completion(.success(try await linkWithApple(
+                    nonce: nonce,
+                    idTokenString: idTokenString,
+                    fullName: fullName
+                )))
+            } catch {
                 completion(.failure(error))
             }
-            Self.appleAuthState = nil
         }
     }
-    
-    // MARK: - Utility
-    private static func randomNonceString(length: Int = 32) -> String {
+
+    private func startAppleAuth(flow: AppleAuthFlow) {
+        guard appleAuthState == nil else {
+            flow.complete(with: .failure(FirebaseAuthEasierError.authenticationFlowAlreadyInProgress))
+            return
+        }
+        guard let presentationAnchor = resolveApplePresentationAnchor() else {
+            flow.complete(with: .failure(FirebaseAuthEasierError.missingApplePresentationAnchor))
+            return
+        }
+
+        let nonce: String
+        do {
+            nonce = try Self.randomNonceString()
+        } catch {
+            flow.complete(with: .failure(error))
+            return
+        }
+
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = Self.sha256(nonce)
+
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        appleAuthState = AppleAuthState(
+            nonce: nonce,
+            flow: flow,
+            controller: controller,
+            presentationAnchor: presentationAnchor
+        )
+        controller.performRequests()
+    }
+
+    public func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithAuthorization authorization: ASAuthorization
+    ) {
+        guard let state = takeAppleAuthState(for: controller) else {
+            return
+        }
+        guard let appleCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
+              let token = appleCredential.identityToken,
+              let tokenString = String(data: token, encoding: .utf8) else {
+            state.flow.complete(with: .failure(FirebaseAuthEasierError.invalidAppleCredential))
+            return
+        }
+
+        let credential = OAuthProvider.appleCredential(
+            withIDToken: tokenString,
+            rawNonce: state.nonce,
+            fullName: appleCredential.fullName
+        )
+        switch state.flow {
+        case .signIn:
+            signInWithCredential(credential, completion: state.flow.complete(with:))
+        case .link:
+            linkCurrentUserWithCredential(credential, completion: state.flow.complete(with:))
+        }
+    }
+
+    public func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithError error: Error
+    ) {
+        guard let state = takeAppleAuthState(for: controller) else {
+            return
+        }
+        state.flow.complete(with: .failure(error))
+    }
+
+    public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        if let state = appleAuthState, state.controller === controller {
+            return state.presentationAnchor
+        }
+        appleAuthLogger.error("Requested a presentation anchor for an inactive flow.")
+        return resolveApplePresentationAnchor() ?? ASPresentationAnchor()
+    }
+
+    private func takeAppleAuthState(for controller: ASAuthorizationController) -> AppleAuthState? {
+        guard let state = appleAuthState else {
+            appleAuthLogger.error("Ignored a duplicate Sign in with Apple delegate callback.")
+            return nil
+        }
+        appleAuthState = nil
+        guard state.controller === controller else {
+            state.flow.complete(with: .failure(FirebaseAuthEasierError.unexpectedAuthorizationCallback))
+            return nil
+        }
+        return state
+    }
+
+    private static func randomNonceString(length: Int = 32) throws -> String {
         precondition(length > 0)
         var randomBytes = [UInt8](repeating: 0, count: length)
-        let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
-        if errorCode != errSecSuccess {
-            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+        let status = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
+        guard status == errSecSuccess else {
+            throw FirebaseAuthEasierError.nonceGenerationFailed(status)
         }
-        let charset: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-        return String(randomBytes.map { charset[Int($0) % charset.count] })
+        let characters = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        return String(randomBytes.map { characters[Int($0) % characters.count] })
     }
-    
+
     private static func sha256(_ input: String) -> String {
-        let inputData = Data(input.utf8)
-        let hashedData = SHA256.hash(data: inputData)
-        return hashedData.compactMap { String(format: "%02x", $0) }.joined()
+        SHA256.hash(data: Data(input.utf8))
+            .map { String($0, radix: 16).leftPadding(toLength: 2, withPad: "0") }
+            .joined()
+    }
+}
+
+private extension String {
+    func leftPadding(toLength: Int, withPad character: Character) -> String {
+        guard count < toLength else { return self }
+        return String(repeating: String(character), count: toLength - count) + self
     }
 }

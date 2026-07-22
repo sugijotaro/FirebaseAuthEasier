@@ -5,78 +5,136 @@
 //  Created by Jotaro Sugiyama on 2025/05/25.
 //
 
-import Foundation
-import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import UIKit
 
+@MainActor
+enum GoogleAuthFlow {
+    case signIn((Result<AuthDataResult, Error>) -> Void)
+    case link((Result<AuthDataResult, Error>) -> Void)
+
+    func complete(with result: Result<AuthDataResult, Error>) {
+        switch self {
+        case .signIn(let completion), .link(let completion):
+            completion(result)
+        }
+    }
+}
+
+@MainActor
+struct GoogleAuthState {
+    let flow: GoogleAuthFlow
+}
+
+@MainActor
+private enum GoogleAuthFlowCoordinator {
+    static weak var activeService: FirebaseAuthService?
+}
+
 extension FirebaseAuthService {
-    private enum GoogleAuthFlow {
-        case signIn((Result<AuthDataResult, Error>) -> Void)
-        case link((Result<AuthDataResult, Error>) -> Void)
+    public func startSignInWithGoogle(
+        presentingViewController: UIViewController,
+        completion: @MainActor @escaping (Result<AuthDataResult, Error>) -> Void
+    ) {
+        startGoogleAuth(
+            flow: .signIn(completion),
+            presentingViewController: presentingViewController
+        )
     }
-    
-    private struct GoogleAuthState {
-        var flow: GoogleAuthFlow
-    }
-    
-    nonisolated(unsafe) private static var googleAuthState: GoogleAuthState?
-    
-    // MARK: - Public API
-    public func startSignInWithGoogle(presentingViewController: UIViewController, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
-        Self.startGoogleAuth(flow: .signIn(completion), authServiceInstance: self, presentingViewController: presentingViewController)
-    }
-    
-    public func startLinkWithGoogle(presentingViewController: UIViewController, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
-        Self.startGoogleAuth(flow: .link(completion), authServiceInstance: self, presentingViewController: presentingViewController)
-    }
-    
-    // MARK: - Private Shared Logic
-    private static func startGoogleAuth(flow: GoogleAuthFlow, authServiceInstance: FirebaseAuthService, presentingViewController: UIViewController) {
-        guard let clientID = FirebaseApp.app()?.options.clientID else {
-            switch flow {
-            case .signIn(let completion), .link(let completion):
-                completion(.failure(NSError(domain: "FirebaseAuthService", code: 0, userInfo: [NSLocalizedDescriptionKey: "Missing Google Client ID."])));
+
+    public func startSignInWithGoogle(
+        presentingViewController: UIViewController
+    ) async throws -> AuthDataResult {
+        let transfer: MainActorTransfer<AuthDataResult> = try await withCheckedThrowingContinuation(
+            isolation: MainActor.shared
+        ) { continuation in
+            startSignInWithGoogle(presentingViewController: presentingViewController) {
+                resumeMainActorContinuation(continuation, with: $0)
             }
+        }
+        return transfer.value
+    }
+
+    public func startLinkWithGoogle(
+        presentingViewController: UIViewController,
+        completion: @MainActor @escaping (Result<AuthDataResult, Error>) -> Void
+    ) {
+        startGoogleAuth(
+            flow: .link(completion),
+            presentingViewController: presentingViewController
+        )
+    }
+
+    public func startLinkWithGoogle(
+        presentingViewController: UIViewController
+    ) async throws -> AuthDataResult {
+        let transfer: MainActorTransfer<AuthDataResult> = try await withCheckedThrowingContinuation(
+            isolation: MainActor.shared
+        ) { continuation in
+            startLinkWithGoogle(presentingViewController: presentingViewController) {
+                resumeMainActorContinuation(continuation, with: $0)
+            }
+        }
+        return transfer.value
+    }
+
+    private func startGoogleAuth(
+        flow: GoogleAuthFlow,
+        presentingViewController: UIViewController
+    ) {
+        guard googleAuthState == nil, GoogleAuthFlowCoordinator.activeService == nil else {
+            flow.complete(with: .failure(FirebaseAuthEasierError.authenticationFlowAlreadyInProgress))
             return
         }
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
+        guard let clientID = auth.app?.options.clientID else {
+            flow.complete(with: .failure(FirebaseAuthEasierError.missingGoogleClientID))
+            return
+        }
+
+        GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
         googleAuthState = GoogleAuthState(flow: flow)
-        GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { result, error in
-            handleGoogleSignInResult(result: result, error: error, authServiceInstance: authServiceInstance)
+        GoogleAuthFlowCoordinator.activeService = self
+        GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { [weak self] result, error in
+            let transfer = MainActorTransfer(value: (result, error))
+            Task { @MainActor in
+                self?.handleGoogleSignInResult(
+                    result: transfer.value.0,
+                    error: transfer.value.1
+                )
+            }
         }
     }
-    
-    private static func handleGoogleSignInResult(result: GIDSignInResult?, error: Error?, authServiceInstance: FirebaseAuthService) {
-        guard let state = googleAuthState else { return }
-        if let error = error {
-            switch state.flow {
-            case .signIn(let completion), .link(let completion):
-                completion(.failure(error))
-            }
-            googleAuthState = nil
+
+    private func handleGoogleSignInResult(result: GIDSignInResult?, error: Error?) {
+        guard let state = googleAuthState else {
+            assertionFailure("Received a duplicate Google Sign-In callback.")
+            return
+        }
+        googleAuthState = nil
+        if GoogleAuthFlowCoordinator.activeService === self {
+            GoogleAuthFlowCoordinator.activeService = nil
+        }
+
+        if let error {
+            state.flow.complete(with: .failure(error))
             return
         }
         guard let user = result?.user,
               let idToken = user.idToken?.tokenString else {
-            switch state.flow {
-            case .signIn(let completion), .link(let completion):
-                completion(.failure(NSError(domain: "FirebaseAuthService", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to retrieve Google user credentials."])));
-            }
-            googleAuthState = nil
+            state.flow.complete(with: .failure(FirebaseAuthEasierError.invalidGoogleCredential))
             return
         }
+
+        let credential = GoogleAuthProvider.credential(
+            withIDToken: idToken,
+            accessToken: user.accessToken.tokenString
+        )
         switch state.flow {
-        case .signIn(let completion):
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
-            authServiceInstance.signInWithCredential(credential, completion: completion)
-            googleAuthState = nil
-        case .link(let completion):
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
-            authServiceInstance.linkCurrentUserWithCredential(credential, completion: completion)
-            googleAuthState = nil
+        case .signIn:
+            signInWithCredential(credential, completion: state.flow.complete(with:))
+        case .link:
+            linkCurrentUserWithCredential(credential, completion: state.flow.complete(with:))
         }
     }
 }

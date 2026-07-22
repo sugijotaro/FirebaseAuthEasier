@@ -27,5 +27,9 @@ let package = Package(
                 .product(name: "GoogleSignIn", package: "googlesignin-iOS"),
             ]
         ),
+        .testTarget(
+            name: "FirebaseAuthEasierTests",
+            dependencies: ["FirebaseAuthEasier"]
+        ),
     ]
 )
