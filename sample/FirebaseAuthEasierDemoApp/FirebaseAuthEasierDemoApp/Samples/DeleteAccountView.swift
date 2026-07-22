@@ -22,11 +22,11 @@ struct DeleteAccountView: View {
         VStack(spacing: 24) {
             Button("Delete Account") {
                 if let rootVC = getRootViewController() {
-                    authService.deleteAccount(presentingViewController: rootVC) { result in
-                        switch result {
-                        case .success:
+                    Task {
+                        do {
+                            try await authService.deleteAccount(presentingViewController: rootVC)
                             message = "Account deleted successfully."
-                        case .failure(let error):
+                        } catch {
                             message = "Failed: \(error.localizedDescription)"
                         }
                     }
@@ -36,7 +36,7 @@ struct DeleteAccountView: View {
             }
             .buttonStyle(.borderedProminent)
             Text(message)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
         .padding()

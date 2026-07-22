@@ -11,13 +11,14 @@ import FirebaseAuth
 public struct FirebaseAuthView<Content: View>: View {
     @StateObject private var viewModel: FirebaseAuthViewModel
     private let content: () -> Content
-    @State private var signInResult: Result<AuthDataResult, Error>? = nil
     
     public init(
         providers: [SignInProviderType]? = nil,
         labelType: SignInButtonLabelType = .signIn,
         termsOfServiceURL: URL? = nil,
         privacyPolicyURL: URL? = nil,
+        authService: FirebaseAuthService? = nil,
+        presentingViewControllerProvider: AuthenticationPresentingViewControllerProvider? = nil,
         onSignInStart: ((SignInProviderType) -> Void)? = nil,
         didSignIn: ((Result<AuthDataResult, Error>) -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content = { FirebaseAuthDefaultContentView() }
@@ -27,6 +28,8 @@ public struct FirebaseAuthView<Content: View>: View {
             labelType: labelType,
             termsOfServiceURL: termsOfServiceURL,
             privacyPolicyURL: privacyPolicyURL,
+            authService: authService,
+            presentingViewControllerProvider: presentingViewControllerProvider,
             onSignInStart: onSignInStart,
             didSignIn: { result in
                 didSignIn?(result)
@@ -40,10 +43,5 @@ public struct FirebaseAuthView<Content: View>: View {
             viewModel: viewModel,
             content: content
         )
-        .onChange(of: viewModel.isSigningIn) { isSigningIn in
-            if !isSigningIn {
-                signInResult = viewModel.lastSignInResult
-            }
-        }
     }
 }

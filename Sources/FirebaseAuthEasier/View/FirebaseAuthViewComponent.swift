@@ -40,16 +40,16 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
             VStack(spacing: 16) {
                 if viewModel.isSigningIn {
                     ProgressView(signingInText)
-                        .progressViewStyle(CircularProgressViewStyle())
+                        .progressViewStyle(.circular)
                 } else if let signInResult = viewModel.lastSignInResult {
                     switch signInResult {
                     case .success:
                         Label(resultStatusText(true), systemImage: "checkmark.circle.fill")
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
                             .font(.headline)
                     case .failure:
                         Label(resultStatusText(false), systemImage: "xmark.octagon.fill")
-                            .foregroundColor(.red)
+                            .foregroundStyle(.red)
                             .font(.headline)
                         signInButtonsView
                     }
@@ -61,7 +61,7 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                     if let legalText = legalText {
                         Text(.init(legalText))
                             .font(.footnote)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                             .padding(.top, 8)
                     }
@@ -80,12 +80,12 @@ public struct FirebaseAuthViewComponent<Content: View>: View {
                         Text("Continue as Guest", bundle: Bundle.module, comment: "Button label for anonymous sign-in")
                             .font(.system(size: 16, weight: .semibold))
                             .lineLimit(1)
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     .frame(height: 52)
                     .background(colorScheme == .dark ? Color(white: 0.15) : Color(white: 0.95))
-                    .cornerRadius(6)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
                 } else {
                     let (buttonStyle, hasBorder) = buttonStyleAndBorder(for: provider, colorScheme: colorScheme)
                     SignInButton(

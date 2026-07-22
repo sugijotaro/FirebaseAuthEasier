@@ -7,31 +7,31 @@
 
 import SwiftUI
 
-public enum SignInProviderType {
+public enum SignInProviderType: Hashable, Sendable {
     case apple
     case google
     case anonymous
 }
 
-public enum SignInButtonStyle {
+public enum SignInButtonStyle: Hashable, Sendable {
     case black
     case white
 }
 
-public enum SignInButtonLabelStyle {
+public enum SignInButtonLabelStyle: Hashable, Sendable {
     @available(iOS 16.0, *)
     case automatic
     case titleAndIcon
     case iconOnly
 }
 
-public enum SignInButtonLabelType {
+public enum SignInButtonLabelType: Hashable, Sendable {
     case signIn
     case signUp
     case `continue`
 }
 
-public enum SignInButtonCornerStyle {
+public enum SignInButtonCornerStyle: Hashable, Sendable {
     case none
     case radius(Int)
 }
@@ -94,16 +94,19 @@ public struct SignInButton: View {
     private var iconOnlyButton: some View {
         Button(action: action) {
             iconImage
-                .foregroundColor(foregroundColor)
+                .foregroundStyle(foregroundColor)
                 .frame(width: 24, height: 24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(backgroundColor)
         .frame(minWidth: 40, minHeight: 40)
         .modifier(CornerStyleModifier(style: cornerStyle))
-        .overlay(
-            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).strokeBorder(borderColor, lineWidth: 1) : nil
-        )
+        .overlay {
+            if hasBorder {
+                RoundedRectangle(cornerRadius: cornerRadiusValue)
+                    .strokeBorder(borderColor, lineWidth: 1)
+            }
+        }
     }
     
     private var titleAndIconButton: some View {
@@ -116,7 +119,7 @@ public struct SignInButton: View {
                         .font(.system(size: 16, weight: .semibold))
                         .lineLimit(1)
                 }
-                .foregroundColor(foregroundColor)
+                .foregroundStyle(foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
@@ -127,9 +130,12 @@ public struct SignInButton: View {
         )
         .background(backgroundColor)
         .modifier(CornerStyleModifier(style: cornerStyle))
-        .overlay(
-            hasBorder ? RoundedRectangle(cornerRadius: cornerRadiusValue).strokeBorder(borderColor, lineWidth: 1) : nil
-        )
+        .overlay {
+            if hasBorder {
+                RoundedRectangle(cornerRadius: cornerRadiusValue)
+                    .strokeBorder(borderColor, lineWidth: 1)
+            }
+        }
     }
     
     private var iconImage: some View {
@@ -215,9 +221,9 @@ private struct CornerStyleModifier: ViewModifier {
     func body(content: Content) -> some View {
         switch style {
         case .none:
-            content.cornerRadius(CGFloat(0))
+            content.clipShape(RoundedRectangle(cornerRadius: 0))
         case .radius(let value):
-            content.cornerRadius(CGFloat(value))
+            content.clipShape(RoundedRectangle(cornerRadius: CGFloat(value)))
         }
     }
 }

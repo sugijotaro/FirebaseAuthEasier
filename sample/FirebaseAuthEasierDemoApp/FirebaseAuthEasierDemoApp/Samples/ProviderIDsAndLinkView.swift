@@ -21,7 +21,7 @@ struct ProviderIDsAndLinkView: View {
     }
     
     func fetchProviderIDs() {
-        if let user = Auth.auth().currentUser {
+        if let user = authService.currentUser {
             providerIDs = FirebaseAuthService.providerIDs(for: user)
         } else {
             providerIDs = []
@@ -35,17 +35,17 @@ struct ProviderIDsAndLinkView: View {
             }
             Text("Current Provider IDs: \(providerIDs.map { $0.rawValue }.joined(separator: ", "))")
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
             
             HStack(spacing: 16) {
                 Button("Link Apple Account") {
-                    authService.startLinkWithApple { result in
-                        switch result {
-                        case .success(let authResult):
+                    Task {
+                        do {
+                            let authResult = try await authService.startLinkWithApple()
                             message = "Apple linked: \(authResult.user.uid)"
                             fetchProviderIDs()
-                        case .failure(let error):
+                        } catch {
                             message = "Failed: \(error.localizedDescription)"
                         }
                     }
@@ -54,12 +54,14 @@ struct ProviderIDsAndLinkView: View {
                 
                 Button("Link Google Account") {
                     if let rootVC = getRootViewController() {
-                        authService.startLinkWithGoogle(presentingViewController: rootVC) { result in
-                            switch result {
-                            case .success(let authResult):
+                        Task {
+                            do {
+                                let authResult = try await authService.startLinkWithGoogle(
+                                    presentingViewController: rootVC
+                                )
                                 message = "Google linked: \(authResult.user.uid)"
                                 fetchProviderIDs()
-                            case .failure(let error):
+                            } catch {
                                 message = "Failed: \(error.localizedDescription)"
                             }
                         }
@@ -70,7 +72,7 @@ struct ProviderIDsAndLinkView: View {
                 .buttonStyle(.bordered)
             }
             Text(message)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
         .padding()

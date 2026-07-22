@@ -15,18 +15,18 @@ struct AnonymousSignInView: View {
     var body: some View {
         VStack(spacing: 24) {
             Button("Sign In Anonymously") {
-                authService.signInAnonymously { result in
-                    switch result {
-                    case .success(let authResult):
+                Task {
+                    do {
+                        let authResult = try await authService.signInAnonymously()
                         message = "Signed in! UID: \(authResult.user.uid)"
-                    case .failure(let error):
+                    } catch {
                         message = "Failed: \(error.localizedDescription)"
                     }
                 }
             }
             .buttonStyle(.borderedProminent)
             Text(message)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
         .padding()

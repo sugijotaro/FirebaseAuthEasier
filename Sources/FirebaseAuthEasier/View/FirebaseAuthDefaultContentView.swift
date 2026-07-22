@@ -20,7 +20,7 @@ public struct FirebaseAuthDefaultContentView: View {
                 Image(systemName: "app")
                     .resizable()
                     .frame(width: 84, height: 84)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
                 Text(appName)

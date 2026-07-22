@@ -15,18 +15,18 @@ struct SignOutView: View {
     var body: some View {
         VStack(spacing: 24) {
             Button("Sign Out") {
-                authService.signOut { result in
-                    switch result {
-                    case .success:
+                Task {
+                    do {
+                        try await authService.signOut()
                         message = "Signed out successfully."
-                    case .failure(let error):
+                    } catch {
                         message = "Failed: \(error.localizedDescription)"
                     }
                 }
             }
             .buttonStyle(.borderedProminent)
             Text(message)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
         .padding()
